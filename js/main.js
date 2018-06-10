@@ -5,9 +5,12 @@ function initMainScene() {
 
     scene.add(new THREE.AmbientLight( 0xffffff ));
 
-    const geometry = new THREE.SphereBufferGeometry(1, 32, 32);
-    const sphereMaterial = new THREE.MeshLambertMaterial({
-        envMap: textures['environmentMap']
+    const geometry = new THREE.SphereBufferGeometry(1, 64, 32);
+    const sphereMaterial = new THREE.MeshStandardMaterial({
+        color: new THREE.Color(1.0, 1.0, 1.0),
+        envMap: textures['environmentMap'],
+        metalness: 1.0,
+        roughness: 0.0
     });
     const sphereMesh = new THREE.Mesh(geometry, sphereMaterial);
     scene.add(sphereMesh);
