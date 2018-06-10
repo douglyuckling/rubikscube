@@ -1,18 +1,11 @@
 import textures from './textures.js'
+import materials from './materials.js'
 
 function initMainScene() {
     const scene = new THREE.Scene();
 
-    scene.add(new THREE.AmbientLight( 0xffffff ));
-
     const geometry = new THREE.SphereBufferGeometry(1, 64, 32);
-    const sphereMaterial = new THREE.MeshStandardMaterial({
-        color: new THREE.Color(1.0, 1.0, 1.0),
-        envMap: textures['environmentMap'],
-        metalness: 1.0,
-        roughness: 0.0
-    });
-    const sphereMesh = new THREE.Mesh(geometry, sphereMaterial);
+    const sphereMesh = new THREE.Mesh(geometry, materials['blackPlastic']);
     scene.add(sphereMesh);
 
     return scene;
