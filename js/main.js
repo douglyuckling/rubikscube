@@ -58,6 +58,14 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    skyBox.camera.aspect = window.innerWidth / window.innerHeight;
+    skyBox.camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}, false);
+
 function render() {
     cameraTheta += 0.01;
     if (cameraTheta >= 2 * Math.PI) { cameraTheta -= 2 * Math.PI; }
