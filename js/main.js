@@ -19,7 +19,7 @@ function initSkyBox() {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const scene = new THREE.Scene();
 
-    const shader = THREE.ShaderLib['equirect'];
+    const shader = THREE.ShaderLib['cube'];
     const material = new THREE.ShaderMaterial({
         fragmentShader: shader.fragmentShader,
         vertexShader: shader.vertexShader,
@@ -27,9 +27,9 @@ function initSkyBox() {
         depthWrite: false,
         side: THREE.BackSide
     });
-    material.uniforms['tEquirect'].value = textures['environmentMap'];
+    material.uniforms['tCube'].value = textures['environmentMap'];
 
-    const mesh = new THREE.Mesh(new THREE.BoxBufferGeometry(100, 100, 100), material);
+    const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(100, 4), material);
     mesh.visible = true;
     scene.add(mesh);
 
