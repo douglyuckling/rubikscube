@@ -1,12 +1,17 @@
 import textures from './textures.js'
 import materials from './materials.js'
+import {loadFaceMeshes} from './rubiksCubeModel.js'
 
 function initMainScene() {
     const scene = new THREE.Scene();
 
-    const geometry = new THREE.SphereBufferGeometry(1, 64, 32);
-    const sphereMesh = new THREE.Mesh(geometry, materials['blackPlastic']);
-    scene.add(sphereMesh);
+    loadFaceMeshes().then((faceMeshes) => {
+        ['posx', 'posy', 'posz', 'negx', 'negy', 'negz'].forEach(faceName => {
+            const mesh = faceMeshes[faceName]();
+            mesh.material = materials['blackPlastic'];
+            scene.add(mesh);
+        });
+    });
 
     return scene;
 }
