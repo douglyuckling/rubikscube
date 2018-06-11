@@ -5,10 +5,12 @@ import {loadFaceMeshes} from './rubiksCubeModel.js'
 function initMainScene() {
     const scene = new THREE.Scene();
 
+    scene.add(new THREE.AmbientLight(new THREE.Color(0.8, 0.8, 0.8)));
+
     loadFaceMeshes().then((faceMeshes) => {
         ['posx', 'posy', 'posz', 'negx', 'negy', 'negz'].forEach(faceName => {
             const mesh = faceMeshes[faceName]();
-            mesh.material = materials['blackPlastic'];
+            mesh.material = materials['greenSticker'];
             scene.add(mesh);
         });
     });
