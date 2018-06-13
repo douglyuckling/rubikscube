@@ -62,7 +62,7 @@ camera.up = new THREE.Vector3(0,1,0);
 camera.position.set(11, 8, 11);
 camera.lookAt(new THREE.Vector3(0,0,0));
 
-var renderer = new THREE.WebGLRenderer();
+var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.autoClear = false;
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
