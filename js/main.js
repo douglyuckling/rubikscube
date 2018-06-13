@@ -1,18 +1,25 @@
 import textures from './textures.js'
 import materials from './materials.js'
-import {loadFaceMeshes} from './rubiksCubeModel.js'
+import {loadRubiksCube} from './rubiksCubeModel.js'
 
 function initMainScene() {
     const scene = new THREE.Scene();
 
     scene.add(new THREE.AmbientLight(new THREE.Color(0.8, 0.8, 0.8)));
 
-    loadFaceMeshes().then((faceMeshes) => {
-        ['posx', 'posy', 'posz', 'negx', 'negy', 'negz'].forEach(faceName => {
-            const mesh = faceMeshes[faceName]();
-            mesh.material = materials['greenSticker'];
-            scene.add(mesh);
+    loadRubiksCube().then((rubiksCubeScene) => {
+        const getStickerMaterial = (stickerName) => {
+            const matches = /sticker_([^_]+)_/.exec(stickerName);
+            const color = (matches && matches.length > 1) ? matches[1] : null;
+            return color ? materials[`${color}Sticker`] : null;
+        }
+        rubiksCubeScene.children.forEach(block => {
+            block.material = materials['blackPlastic'];
+            block.children.forEach(sticker => {
+                sticker.material = getStickerMaterial(sticker.name);
+            });
         });
+        scene.add(rubiksCubeScene);
     });
 
     return scene;
@@ -52,7 +59,7 @@ const skyBox = initSkyBox();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.up = new THREE.Vector3(0,1,0);
-const cameraDistance = 5;
+const cameraDistance = 16;
 let cameraTheta = 0;
 
 var renderer = new THREE.WebGLRenderer();
@@ -74,7 +81,7 @@ function render() {
     if (cameraTheta >= 2 * Math.PI) { cameraTheta -= 2 * Math.PI; }
     camera.position.x = cameraDistance * Math.sin(cameraTheta);
     camera.position.z = cameraDistance * Math.cos(cameraTheta);
-    camera.position.y = cameraDistance * Math.cos(cameraTheta) / 4;
+    camera.position.y = cameraDistance * Math.cos(cameraTheta) / 2;
     camera.lookAt(new THREE.Vector3(0,0,0));
 
     skyBox.render(renderer, camera);

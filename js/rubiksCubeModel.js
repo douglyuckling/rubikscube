@@ -1,21 +1,13 @@
 let faceMeshesPromise = null;
 
-export function loadFaceMeshes() {
+export function loadRubiksCube() {
     if (!faceMeshesPromise) {
         faceMeshesPromise = new Promise(function(resolve, reject) {
             const gltfLoader = new THREE.GLTFLoader();
             gltfLoader.load(
-                'models/rubikscube/rubikscube_block_faces.gltf',
+                'models/rubikscube/rubikscube.gltf',
                 function onLoad(gltf) {
-                    const faceMeshes = {
-                        posz: () => gltf.scene.children[0].clone(),
-                        posx: () => gltf.scene.children[1].clone(),
-                        posy: () => gltf.scene.children[2].clone(),
-                        negz: () => gltf.scene.children[3].clone(),
-                        negx: () => gltf.scene.children[4].clone(),
-                        negy: () => gltf.scene.children[5].clone()
-                    };
-                    resolve(faceMeshes);
+                    resolve(gltf.scene);
                 },
                 null,
                 function onError(error) {

@@ -26,7 +26,7 @@ Object.keys(colors).forEach(colorName => {
         envMap: textures['environmentMap'],
         envMapIntensity: 2.0,
         metalness: 0.0,
-        roughness: 0.15
+        roughness: 0.075
     });
     coloredStickerMaterials[`${colorName}Sticker`] = material;
 });

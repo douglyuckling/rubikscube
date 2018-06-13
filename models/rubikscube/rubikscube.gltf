@@ -1,0 +1,2014 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5121,
+            "count" : 900,
+            "max" : [
+                215
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 216,
+            "max" : [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min" : [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 216,
+            "max" : [
+                0.9898678660392761,
+                0.9898678660392761,
+                0.9898678660392761
+            ],
+            "min" : [
+                -0.9898678660392761,
+                -0.9898678660392761,
+                -0.9898678660392761
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 216,
+            "max" : [
+                0.7070883512496948,
+                0.7071007490158081,
+                0.7070882320404053,
+                1.0
+            ],
+            "min" : [
+                -1.0,
+                -1.0,
+                -0.9999999403953552,
+                1.0
+            ],
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 216,
+            "max" : [
+                1.0,
+                1.0
+            ],
+            "min" : [
+                0.0,
+                0.0
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 15,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 16,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 17,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 18,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 19,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 20,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 21,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 22,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 23,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 24,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 25,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 26,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 27,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 28,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        }
+    ],
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter",
+        "version" : "2.0"
+    },
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 0,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 80,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 416,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 752,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 976,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 1056,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 1392,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 1728,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 900,
+            "byteOffset" : 1952,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2592,
+            "byteOffset" : 2852,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2592,
+            "byteOffset" : 5444,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3456,
+            "byteOffset" : 8036,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1728,
+            "byteOffset" : 11492,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 13220,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 13300,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 13636,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 13972,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 14196,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 14276,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 14612,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 14948,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 15172,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 15252,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 15588,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 15924,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 16148,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 16228,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 16564,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 16900,
+            "target" : 34962
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 17124,
+            "uri" : "rubikscube.bin"
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "sticker_mesh.red",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2,
+                        "POSITION" : 1,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 0
+                }
+            ]
+        },
+        {
+            "name" : "sticker_mesh.green",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 6,
+                        "POSITION" : 5,
+                        "TEXCOORD_0" : 7
+                    },
+                    "indices" : 4
+                }
+            ]
+        },
+        {
+            "name" : "block_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 10,
+                        "POSITION" : 9,
+                        "TANGENT" : 11,
+                        "TEXCOORD_0" : 12
+                    },
+                    "indices" : 8
+                }
+            ]
+        },
+        {
+            "name" : "sticker_mesh.white",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 15,
+                        "POSITION" : 14,
+                        "TEXCOORD_0" : 16
+                    },
+                    "indices" : 13
+                }
+            ]
+        },
+        {
+            "name" : "sticker_mesh.orange",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 19,
+                        "POSITION" : 18,
+                        "TEXCOORD_0" : 20
+                    },
+                    "indices" : 17
+                }
+            ]
+        },
+        {
+            "name" : "sticker_mesh.yellow",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 23,
+                        "POSITION" : 22,
+                        "TEXCOORD_0" : 24
+                    },
+                    "indices" : 21
+                }
+            ]
+        },
+        {
+            "name" : "sticker_mesh.blue",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 27,
+                        "POSITION" : 26,
+                        "TEXCOORD_0" : 28
+                    },
+                    "indices" : 25
+                }
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "children" : [
+                26
+            ],
+            "mesh" : 2,
+            "name" : "block.center.blue",
+            "rotation" : [
+                -1.1520234721729139e-07,
+                0.7071068286895752,
+                -0.7071068286895752,
+                -1.1520234011186403e-07
+            ],
+            "translation" : [
+                0.0,
+                0.0,
+                -2.0
+            ]
+        },
+        {
+            "children" : [
+                35
+            ],
+            "mesh" : 2,
+            "name" : "block.center.green",
+            "rotation" : [
+                0.7071068286895752,
+                0.0,
+                -0.0,
+                0.7071068286895752
+            ],
+            "translation" : [
+                0.0,
+                0.0,
+                2.0
+            ]
+        },
+        {
+            "children" : [
+                44
+            ],
+            "mesh" : 2,
+            "name" : "block.center.orange",
+            "rotation" : [
+                0.5000001192092896,
+                -0.49999985098838806,
+                0.49999988079071045,
+                0.5000001192092896
+            ],
+            "translation" : [
+                -2.0,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "children" : [
+                53
+            ],
+            "mesh" : 2,
+            "name" : "block.center.red",
+            "rotation" : [
+                0.5,
+                0.5,
+                -0.5000000596046448,
+                0.4999999701976776
+            ],
+            "translation" : [
+                2.0,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "children" : [
+                62
+            ],
+            "mesh" : 2,
+            "name" : "block.center.white",
+            "translation" : [
+                0.0,
+                2.0,
+                -0.0
+            ]
+        },
+        {
+            "children" : [
+                71
+            ],
+            "mesh" : 2,
+            "name" : "block.center.yellow",
+            "rotation" : [
+                1.0,
+                0.0,
+                -0.0,
+                -1.6292068494294654e-07
+            ],
+            "translation" : [
+                0.0,
+                -2.0,
+                -1.7484555314695172e-07
+            ]
+        },
+        {
+            "children" : [
+                27,
+                48,
+                72
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.blue_orange_yellow",
+            "rotation" : [
+                1.9470718370939721e-07,
+                1.6292068494294654e-07,
+                -1.0,
+                1.7478846739112444e-14
+            ],
+            "translation" : [
+                -1.999999761581421,
+                -1.999999761581421,
+                -2.0
+            ]
+        },
+        {
+            "children" : [
+                37,
+                57,
+                73
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.green_red_yellow",
+            "rotation" : [
+                1.0,
+                0.0,
+                -0.0,
+                -1.6292068494294654e-07
+            ],
+            "translation" : [
+                2.0,
+                -2.0,
+                2.0
+            ]
+        },
+        {
+            "children" : [
+                39,
+                46,
+                74
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.orange_green_yellow",
+            "rotation" : [
+                -0.7071067094802856,
+                1.152023116901546e-07,
+                -0.7071068286895752,
+                1.1520232590100932e-07
+            ],
+            "translation" : [
+                -2.0,
+                -2.0,
+                1.9999996423721313
+            ]
+        },
+        {
+            "children" : [
+                30,
+                54,
+                75
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.red_blue_yellow",
+            "rotation" : [
+                0.7071069478988647,
+                1.1520233300643667e-07,
+                -0.7071065902709961,
+                -1.152023116901546e-07
+            ],
+            "translation" : [
+                2.0,
+                -1.9999994039535522,
+                -1.9999998807907104
+            ]
+        },
+        {
+            "children" : [
+                28,
+                56,
+                63
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.white_blue_red",
+            "translation" : [
+                2.0,
+                2.0,
+                -2.0
+            ]
+        },
+        {
+            "children" : [
+                36,
+                47,
+                64
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.white_green_orange",
+            "rotation" : [
+                0.0,
+                1.0,
+                -0.0,
+                -1.6292068494294654e-07
+            ],
+            "translation" : [
+                -1.999999761581421,
+                1.999999761581421,
+                2.0
+            ]
+        },
+        {
+            "children" : [
+                29,
+                45,
+                65
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.white_orange_blue",
+            "rotation" : [
+                0.0,
+                0.7071068286895752,
+                -0.0,
+                0.7071067690849304
+            ],
+            "translation" : [
+                -2.0,
+                1.9999998807907104,
+                -1.9999998807907104
+            ]
+        },
+        {
+            "children" : [
+                38,
+                55,
+                66
+            ],
+            "mesh" : 2,
+            "name" : "block.corner.white_red_green",
+            "rotation" : [
+                0.0,
+                -0.7071065902709961,
+                -0.0,
+                0.7071069478988647
+            ],
+            "translation" : [
+                2.0,
+                1.9999996423721313,
+                1.9999996423721313
+            ]
+        },
+        {
+            "children" : [
+                31,
+                49
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.blue_orange",
+            "rotation" : [
+                -0.5000000596046448,
+                0.5000000596046448,
+                0.5000000596046448,
+                0.5
+            ],
+            "translation" : [
+                -1.9999998807907104,
+                -1.1920928955078125e-07,
+                -1.9999998807907104
+            ]
+        },
+        {
+            "children" : [
+                34,
+                76
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.blue_yellow",
+            "rotation" : [
+                0.7071069478988647,
+                1.1520233300643667e-07,
+                -0.7071065902709961,
+                -1.152023116901546e-07
+            ],
+            "translation" : [
+                0.0,
+                -1.9999994039535522,
+                -2.0
+            ]
+        },
+        {
+            "children" : [
+                41,
+                59
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.green_red",
+            "rotation" : [
+                -0.49999988079071045,
+                -0.49999985098838806,
+                -0.5000001192092896,
+                0.5000001192092896
+            ],
+            "translation" : [
+                1.9999996423721313,
+                -1.1920928955078125e-07,
+                1.9999998807907104
+            ]
+        },
+        {
+            "children" : [
+                43,
+                77
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.green_yellow",
+            "rotation" : [
+                -0.7071067094802856,
+                1.152023116901546e-07,
+                -0.7071068286895752,
+                1.1520232590100932e-07
+            ],
+            "translation" : [
+                0.0,
+                -2.0,
+                2.0
+            ]
+        },
+        {
+            "children" : [
+                40,
+                50
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.orange_green",
+            "rotation" : [
+                8.429372400087232e-08,
+                -0.7071068286895752,
+                -0.7071068286895752,
+                1.4611097753913782e-07
+            ],
+            "translation" : [
+                -1.9999998807907104,
+                -1.1920928955078125e-07,
+                1.999999761581421
+            ]
+        },
+        {
+            "children" : [
+                52,
+                78
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.orange_yellow",
+            "rotation" : [
+                1.9470718370939721e-07,
+                1.6292068494294654e-07,
+                -1.0,
+                1.7478846739112444e-14
+            ],
+            "translation" : [
+                -2.0,
+                -1.999999761581421,
+                -1.74845538936097e-07
+            ]
+        },
+        {
+            "children" : [
+                32,
+                58
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.red_blue",
+            "rotation" : [
+                -0.7071068286895752,
+                0.0,
+                -0.0,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.9999998807907104,
+                0.0,
+                -2.0
+            ]
+        },
+        {
+            "children" : [
+                61,
+                79
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.red_yellow",
+            "rotation" : [
+                1.0,
+                0.0,
+                -0.0,
+                -1.6292068494294654e-07
+            ],
+            "translation" : [
+                2.0,
+                -2.0,
+                -1.7484555314695172e-07
+            ]
+        },
+        {
+            "children" : [
+                33,
+                67
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.white_blue",
+            "rotation" : [
+                0.0,
+                0.7071068286895752,
+                -0.0,
+                0.7071067690849304
+            ],
+            "translation" : [
+                0.0,
+                1.9999998807907104,
+                -2.0
+            ]
+        },
+        {
+            "children" : [
+                42,
+                68
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.white_green",
+            "rotation" : [
+                0.0,
+                -0.7071065902709961,
+                -0.0,
+                0.7071069478988647
+            ],
+            "translation" : [
+                0.0,
+                1.9999996423721313,
+                2.0
+            ]
+        },
+        {
+            "children" : [
+                51,
+                69
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.white_orange",
+            "rotation" : [
+                0.0,
+                1.0,
+                -0.0,
+                -1.6292068494294654e-07
+            ],
+            "translation" : [
+                -2.0,
+                1.999999761581421,
+                -0.0
+            ]
+        },
+        {
+            "children" : [
+                60,
+                70
+            ],
+            "mesh" : 2,
+            "name" : "block.edge.white_red",
+            "translation" : [
+                2.0,
+                2.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_center",
+            "translation" : [
+                5.108972800371703e-08,
+                1.000999927520752,
+                6.386213158293685e-08
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_corner_orange_yellow",
+            "rotation" : [
+                -0.7071068286895752,
+                -1.0048578011074682e-14,
+                1.4692948599329472e-14,
+                0.7071068286895752
+            ],
+            "scale" : [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                0.0,
+                -1.0009998083114624
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_corner_red_white",
+            "rotation" : [
+                -0.7071068286895752,
+                0.0,
+                -0.0,
+                0.7071068286895752
+            ],
+            "translation" : [
+                0.0,
+                0.0,
+                -1.000999927520752
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_corner_white_orange",
+            "rotation" : [
+                -1.5454313384566376e-08,
+                -3.793077141267531e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.001000165939331,
+                0.0,
+                -3.5762786865234375e-07
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_corner_yellow_red",
+            "rotation" : [
+                2.6692489996094082e-08,
+                2.6692427823604703e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.0010004043579102,
+                -2.384185791015625e-07,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_edge_orange",
+            "rotation" : [
+                -2.6692537957728746e-08,
+                -2.6692545063156103e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "scale" : [
+                1.0,
+                1.0000001192092896,
+                1.0
+            ],
+            "translation" : [
+                1.0010004043579102,
+                0.0,
+                -1.9466345690943854e-07
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_edge_red",
+            "translation" : [
+                1.1920928955078125e-07,
+                1.000999927520752,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_edge_white",
+            "rotation" : [
+                -2.6692543286799264e-08,
+                -2.6692543286799264e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -1.9466348533114797e-07
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "sticker_blue_edge_yellow",
+            "rotation" : [
+                2.6692539734085585e-08,
+                2.6692545063156103e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.0010000467300415,
+                0.0,
+                -2.2600499960390152e-07
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_center",
+            "translation" : [
+                5.10896995820076e-08,
+                1.000999927520752,
+                6.386213158293685e-08
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_corner_orange_white",
+            "rotation" : [
+                -0.7071068286895752,
+                1.967038087968831e-08,
+                -0.0,
+                0.7071068286895752
+            ],
+            "scale" : [
+                1.0,
+                0.9999998807907104,
+                1.0
+            ],
+            "translation" : [
+                2.384185791015625e-07,
+                0.0,
+                -1.000999927520752
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_corner_red_yellow",
+            "rotation" : [
+                -0.7071068286895752,
+                0.0,
+                -0.0,
+                0.7071068286895752
+            ],
+            "translation" : [
+                0.0,
+                -1.1920928955078125e-07,
+                -1.000999927520752
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_corner_white_red",
+            "rotation" : [
+                1.826028572793348e-08,
+                -7.022255665845023e-09,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.0010004043579102,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_corner_yellow_orange",
+            "rotation" : [
+                -2.1073418565720203e-08,
+                -4.7765968957946825e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                2.384185791015625e-07,
+                -4.76837158203125e-07
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_edge_orange",
+            "rotation" : [
+                -8.881784197001252e-16,
+                -7.105427357601002e-15,
+                6.9545347258781476e-09,
+                1.0
+            ],
+            "scale" : [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.0009996891021729,
+                5.684341886080802e-14
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_edge_red",
+            "rotation" : [
+                2.6692543286799264e-08,
+                2.6692539734085585e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.001000165939331,
+                1.1920928955078125e-07,
+                -2.2600471538680722e-07
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_edge_white",
+            "rotation" : [
+                2.6692543286799264e-08,
+                2.6692543286799264e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -2.2600499960390152e-07
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "sticker_green_edge_yellow",
+            "rotation" : [
+                -2.6692539734085585e-08,
+                -2.6692545063156103e-08,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "scale" : [
+                0.9999999403953552,
+                1.0,
+                1.0
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -1.9466349954200268e-07
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_center",
+            "translation" : [
+                5.108972800371703e-08,
+                1.000999927520752,
+                6.386213158293685e-08
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_corner_blue_white",
+            "rotation" : [
+                -0.7071068286895752,
+                -1.1238230790411308e-08,
+                -1.1238230790411308e-08,
+                0.7071068286895752
+            ],
+            "translation" : [
+                0.0,
+                0.0,
+                -1.0010000467300415
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_corner_green_yellow",
+            "rotation" : [
+                -0.7071068286895752,
+                -5.619115395205654e-09,
+                -2.107342567114756e-08,
+                0.7071068286895752
+            ],
+            "translation" : [
+                2.384185791015625e-07,
+                1.1920928955078125e-07,
+                -1.000999927520752
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_corner_white_green",
+            "rotation" : [
+                -1.9670371997904113e-08,
+                7.21246013488195e-15,
+                -0.7071068286895752,
+                0.7071067690849304
+            ],
+            "scale" : [
+                1.0,
+                1.0,
+                0.9999998807907104
+            ],
+            "translation" : [
+                1.001000165939331,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_corner_yellow_blue",
+            "rotation" : [
+                3.1496832052224644e-14,
+                -1.0048596645799521e-14,
+                -0.7071068286895752,
+                0.7071067690849304
+            ],
+            "scale" : [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                1.1920928955078125e-07
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_edge_blue",
+            "rotation" : [
+                -8.881784197001252e-16,
+                -1.7763566276420137e-15,
+                2.1855695919725804e-08,
+                1.0
+            ],
+            "scale" : [
+                1.0000001192092896,
+                1.0,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.0009995698928833,
+                -3.552713678800501e-15
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_edge_green",
+            "rotation" : [
+                1.758503756564382e-14,
+                8.792519629854858e-15,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "scale" : [
+                0.9999999403953552,
+                1.0,
+                1.0
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -1.5066996184032178e-07
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_edge_white",
+            "rotation" : [
+                8.69753335514976e-15,
+                8.69753335514976e-15,
+                -0.7071068286895752,
+                0.7071067690849304
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -1.5066996184032178e-07
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "sticker_orange_edge_yellow",
+            "rotation" : [
+                1.1399646383922126e-14,
+                1.0048589022502996e-14,
+                -0.7071068286895752,
+                0.7071067690849304
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -1.5066984815348405e-07
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_center",
+            "rotation" : [
+                0.0,
+                0.0,
+                -2.3140616280682956e-30,
+                1.0
+            ],
+            "translation" : [
+                5.10896995820076e-08,
+                1.000999927520752,
+                6.386213158293685e-08
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_corner_blue_yellow",
+            "rotation" : [
+                -0.7071068286895752,
+                -3.274247234413584e-21,
+                -9.835316561179752e-09,
+                0.7071068286895752
+            ],
+            "translation" : [
+                2.384185791015625e-07,
+                -2.384185791015625e-07,
+                -1.0009996891021729
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_corner_green_white",
+            "rotation" : [
+                -0.7071068286895752,
+                8.432177622808013e-09,
+                -3.371479806446587e-08,
+                0.7071068286895752
+            ],
+            "translation" : [
+                4.76837158203125e-07,
+                0.0,
+                -1.0009996891021729
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_corner_white_blue",
+            "rotation" : [
+                0.0,
+                0.0,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_corner_yellow_green",
+            "rotation" : [
+                0.0,
+                0.0,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_edge_blue",
+            "rotation" : [
+                0.0,
+                0.0,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.001000165939331,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_edge_green",
+            "rotation" : [
+                -1.7763568394002505e-15,
+                0.0,
+                5.962450977392564e-09,
+                1.0
+            ],
+            "translation" : [
+                1.1920928955078125e-07,
+                1.0009996891021729,
+                5.684341886080802e-14
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_edge_white",
+            "rotation" : [
+                0.0,
+                0.0,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "sticker_red_edge_yellow",
+            "rotation" : [
+                0.0,
+                0.0,
+                -0.7071068286895752,
+                0.7071068286895752
+            ],
+            "translation" : [
+                1.000999927520752,
+                0.0,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_center",
+            "translation" : [
+                5.10896995820076e-08,
+                1.000999927520752,
+                6.38621244775095e-08
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_corner_blue_red",
+            "translation" : [
+                0.0,
+                1.000999927520752,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_corner_green_orange",
+            "rotation" : [
+                0.0,
+                1.3909058793615259e-08,
+                -0.0,
+                1.0
+            ],
+            "scale" : [
+                1.0,
+                1.0,
+                0.9999998807907104
+            ],
+            "translation" : [
+                -2.384185791015625e-07,
+                1.0009996891021729,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_corner_orange_blue",
+            "rotation" : [
+                -1.7763568394002505e-15,
+                -1.5893256488652696e-08,
+                -6.35309761108466e-23,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.0009998083114624,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_corner_red_green",
+            "rotation" : [
+                -5.684341886080802e-14,
+                -1.7877511027108994e-08,
+                -2.812183376837574e-20,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.0009995698928833,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_edge_blue",
+            "translation" : [
+                0.0,
+                1.0009998083114624,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_edge_green",
+            "translation" : [
+                0.0,
+                1.0009995698928833,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_edge_orange",
+            "translation" : [
+                0.0,
+                1.0009996891021729,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "sticker_white_edge_red",
+            "translation" : [
+                0.0,
+                1.000999927520752,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_center",
+            "translation" : [
+                5.10896995820076e-08,
+                1.000999927520752,
+                6.386210316122742e-08
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_corner_blue_orange",
+            "rotation" : [
+                7.105428204633949e-15,
+                -2.1316282072803006e-14,
+                2.4600337229525177e-14,
+                1.0
+            ],
+            "scale" : [
+                1.0,
+                1.0,
+                0.9999999403953552
+            ],
+            "translation" : [
+                -2.384185791015625e-07,
+                1.0009996891021729,
+                2.384185791015625e-07
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_corner_green_red",
+            "translation" : [
+                0.0,
+                1.0009998083114624,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_corner_orange_green",
+            "rotation" : [
+                4.3065636844944084e-15,
+                -1.887447531601083e-08,
+                -0.0,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.000999927520752,
+                -1.1920928955078125e-07
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_corner_red_blue",
+            "rotation" : [
+                -3.3950672947893196e-14,
+                -8.52651350674756e-14,
+                -6.954536502234987e-09,
+                1.0
+            ],
+            "translation" : [
+                -2.384185791015625e-07,
+                1.0009994506835938,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_edge_blue",
+            "rotation" : [
+                9.366608915350669e-16,
+                8.683116434464085e-22,
+                -1.3909073004469974e-08,
+                1.0
+            ],
+            "translation" : [
+                -1.1920928955078125e-07,
+                1.0009996891021729,
+                -5.684341886080802e-14
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_edge_green",
+            "rotation" : [
+                1.1169752536433126e-15,
+                -1.7763568394002505e-15,
+                6.954529396807629e-09,
+                1.0
+            ],
+            "scale" : [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.000999927520752,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_edge_orange",
+            "rotation" : [
+                0.0,
+                0.0,
+                2.4600337229525177e-14,
+                1.0
+            ],
+            "translation" : [
+                0.0,
+                1.0009996891021729,
+                -0.0
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "sticker_yellow_edge_red",
+            "translation" : [
+                0.0,
+                1.000999927520752,
+                -0.0
+            ]
+        }
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                14,
+                20,
+                16,
+                18,
+                2,
+                0,
+                3,
+                1,
+                5,
+                21,
+                7,
+                8,
+                17,
+                19,
+                6,
+                9,
+                15,
+                23,
+                13,
+                11,
+                24,
+                22,
+                12,
+                10,
+                25,
+                4
+            ]
+        }
+    ]
+}
