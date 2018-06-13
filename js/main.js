@@ -26,7 +26,7 @@ function initMainScene() {
 }
 
 function initSkyBox() {
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 50);
     const scene = new THREE.Scene();
 
     const shader = THREE.ShaderLib['cube'];
@@ -57,16 +57,24 @@ function initSkyBox() {
 const scene = initMainScene();
 const skyBox = initSkyBox();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 50);
 camera.up = new THREE.Vector3(0,1,0);
-const cameraDistance = 16;
-let cameraTheta = 0;
+camera.position.set(11, 8, 11);
+camera.lookAt(new THREE.Vector3(0,0,0));
 
 var renderer = new THREE.WebGLRenderer();
 renderer.autoClear = false;
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.25;
+controls.screenSpacePanning = false;
+controls.minDistance = 14;
+controls.maxDistance = 14;
+controls.maxPolarAngle = Math.PI;
 
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -77,12 +85,7 @@ window.addEventListener('resize', () => {
 }, false);
 
 function render() {
-    cameraTheta += 0.01;
-    if (cameraTheta >= 2 * Math.PI) { cameraTheta -= 2 * Math.PI; }
-    camera.position.x = cameraDistance * Math.sin(cameraTheta);
-    camera.position.z = cameraDistance * Math.cos(cameraTheta);
-    camera.position.y = cameraDistance * Math.cos(cameraTheta) / 2;
-    camera.lookAt(new THREE.Vector3(0,0,0));
+    controls.update();
 
     skyBox.render(renderer, camera);
     renderer.render(scene, camera);
