@@ -80,6 +80,7 @@ controls.screenSpacePanning = false;
 controls.minDistance = 14;
 controls.maxDistance = 14;
 controls.maxPolarAngle = Math.PI;
+controls.enablePan = false;
 
 window.addEventListener('resize', () => {
     updateRendererSize();
