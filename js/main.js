@@ -60,7 +60,7 @@ function initSkyBox(mainCamera) {
 
 const scene = initMainScene();
 
-const camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 50);
+const camera = new THREE.PerspectiveCamera(60, 16/9, 0.1, 50);
 camera.up = new THREE.Vector3(0,1,0);
 camera.position.set(11, 8, 11);
 camera.lookAt(new THREE.Vector3(0,0,0));
