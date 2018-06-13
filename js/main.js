@@ -25,8 +25,12 @@ function initMainScene() {
     return scene;
 }
 
-function initSkyBox() {
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 50);
+function initSkyBox(mainCamera) {
+    const camera = new THREE.PerspectiveCamera(
+        mainCamera.fov,
+        mainCamera.aspect,
+        mainCamera.near,
+        mainCamera.far);
     const scene = new THREE.Scene();
 
     const shader = THREE.ShaderLib['cube'];
@@ -43,7 +47,7 @@ function initSkyBox() {
     mesh.visible = true;
     scene.add(mesh);
 
-    function render(renderer, mainCamera) {
+    function render(renderer) {
         camera.rotation.copy(mainCamera.rotation);
         renderer.render(scene, camera);
     }
@@ -55,17 +59,18 @@ function initSkyBox() {
 }
 
 const scene = initMainScene();
-const skyBox = initSkyBox();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 50);
+const camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 50);
 camera.up = new THREE.Vector3(0,1,0);
 camera.position.set(11, 8, 11);
 camera.lookAt(new THREE.Vector3(0,0,0));
 
+const skyBox = initSkyBox(camera);
+
 var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.autoClear = false;
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+updateRendererSize();
 document.body.appendChild(renderer.domElement);
 
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -77,12 +82,17 @@ controls.maxDistance = 14;
 controls.maxPolarAngle = Math.PI;
 
 window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    skyBox.camera.aspect = window.innerWidth / window.innerHeight;
-    skyBox.camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    updateRendererSize();
 }, false);
+
+function updateRendererSize() {
+    const windowAspectRatio = window.innerWidth / window.innerHeight;
+    if (windowAspectRatio < camera.aspect) {
+        renderer.setSize(window.innerWidth, window.innerWidth / camera.aspect);
+    } else {
+        renderer.setSize(camera.aspect * window.innerHeight, window.innerHeight);
+    }
+}
 
 function render() {
     controls.update();
