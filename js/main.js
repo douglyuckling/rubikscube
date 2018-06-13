@@ -81,6 +81,8 @@ controls.minDistance = 14;
 controls.maxDistance = 14;
 controls.maxPolarAngle = Math.PI;
 controls.enablePan = false;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.25;
 
 window.addEventListener('resize', () => {
     updateRendererSize();
