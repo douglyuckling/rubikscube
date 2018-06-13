@@ -4,13 +4,29 @@
     <meta charset=utf-8>
     <title>Learning three.js</title>
     <style>
-    body { margin: 0; overflow: hidden; background-color: #000; }
-    canvas { position: absolute; margin: auto; top: 0; bottom: 0; left: 0; right: 0; }
+    body {
+        margin: 10px 0 0 0;
+        overflow: hidden;
+        color: #999;
+        background-color: #000;
+        text-align: center;
+        font-family: sans-serif;
+    }
+    canvas {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/93/three.js" integrity="sha256-WQG9ZOTWzL8BHqeD8yqv8NaFMqbnKCE/YqwL/GvdHgc=" crossorigin="anonymous"></script>
     <script src="js/lib/GLTFLoader.js"></script>
     <script src="js/lib/OrbitControls.js"></script>
     <script src="js/main.js" type="module"></script>
 </head>
-<body></body>
+<body>
+    <p>Hold the middle mouse button to rotate the cube.</p>
+</body>
 </html>

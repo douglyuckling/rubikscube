@@ -83,6 +83,7 @@ controls.maxPolarAngle = Math.PI;
 controls.enablePan = false;
 controls.autoRotate = true;
 controls.autoRotateSpeed = 0.25;
+controls.mouseButtons.ORBIT = THREE.MOUSE.MIDDLE;
 
 window.addEventListener('resize', () => {
     updateRendererSize();
