@@ -17,18 +17,17 @@ const colors = {
     yellow: new THREE.Color(0.95, 0.95, 0.05),
     green: new THREE.Color(0.05, 0.55, 0.05),
     blue: new THREE.Color(0.05, 0.05, 0.75),
-}
+};
 
 const coloredStickerMaterials = {};
 Object.keys(colors).forEach(colorName => {
-    const material = new THREE.MeshStandardMaterial({
+    coloredStickerMaterials[`${colorName}Sticker`] = new THREE.MeshStandardMaterial({
         color: colors[colorName],
         envMap: textures['environmentMap'],
         envMapIntensity: 2.0,
         metalness: 0.0,
         roughness: 0.075
     });
-    coloredStickerMaterials[`${colorName}Sticker`] = material;
 });
 
 Object.assign(materials, coloredStickerMaterials);

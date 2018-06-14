@@ -1,6 +1,6 @@
-import textures from './textures.js'
-import materials from './materials.js'
-import {loadRubiksCube} from './rubiksCubeModel.js'
+import textures from './textures.js';
+import materials from './materials.js';
+import {loadRubiksCube} from './rubiksCubeModel.js';
 
 function initMainScene() {
     const scene = new THREE.Scene();
@@ -12,7 +12,7 @@ function initMainScene() {
             const matches = /sticker_([^_]+)_/.exec(stickerName);
             const color = (matches && matches.length > 1) ? matches[1] : null;
             return color ? materials[`${color}Sticker`] : null;
-        }
+        };
         rubiksCubeScene.children.forEach(block => {
             block.material = materials['blackPlastic'];
             block.children.forEach(sticker => {
@@ -60,10 +60,10 @@ function initSkyBox(mainCamera) {
 
 const scene = initMainScene();
 
-const camera = new THREE.PerspectiveCamera(60, 16/9, 0.1, 50);
-camera.up = new THREE.Vector3(0,1,0);
+const camera = new THREE.PerspectiveCamera(60, 16 / 9, 0.1, 50);
+camera.up = new THREE.Vector3(0, 1, 0);
 camera.position.set(11, 8, 11);
-camera.lookAt(new THREE.Vector3(0,0,0));
+camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 const skyBox = initSkyBox(camera);
 

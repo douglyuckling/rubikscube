@@ -2,7 +2,7 @@ let faceMeshesPromise = null;
 
 export function loadRubiksCube() {
     if (!faceMeshesPromise) {
-        faceMeshesPromise = new Promise(function(resolve, reject) {
+        faceMeshesPromise = new Promise(function (resolve, reject) {
             const gltfLoader = new THREE.GLTFLoader();
             gltfLoader.load(
                 'models/rubikscube/rubikscube.gltf',
