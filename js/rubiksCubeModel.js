@@ -7,6 +7,7 @@ export function loadRubiksCube() {
             gltfLoader.load(
                 'models/rubikscube/rubikscube.gltf',
                 function onLoad(gltf) {
+                    gltf.scene.name = 'rubiks_cube';
                     resolve(gltf.scene);
                 },
                 null,

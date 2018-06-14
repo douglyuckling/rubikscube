@@ -119,6 +119,180 @@
         {
             "bufferView" : 8,
             "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 15,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 16,
+            "componentType" : 5121,
+            "count" : 78,
+            "max" : [
+                27
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 17,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9292892813682556,
+                0.0,
+                0.9292892813682556
+            ],
+            "min" : [
+                -0.9292894005775452,
+                0.0,
+                -0.9292894005775452
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 18,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "min" : [
+                0.0,
+                1.0,
+                -0.0
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 19,
+            "componentType" : 5126,
+            "count" : 28,
+            "max" : [
+                0.9646446704864502,
+                0.9646446593105793
+            ],
+            "min" : [
+                0.0353553406894207,
+                0.035355329513549805
+            ],
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 20,
+            "componentType" : 5121,
             "count" : 900,
             "max" : [
                 215
@@ -129,7 +303,7 @@
             "type" : "SCALAR"
         },
         {
-            "bufferView" : 9,
+            "bufferView" : 21,
             "componentType" : 5126,
             "count" : 216,
             "max" : [
@@ -145,7 +319,7 @@
             "type" : "VEC3"
         },
         {
-            "bufferView" : 10,
+            "bufferView" : 22,
             "componentType" : 5126,
             "count" : 216,
             "max" : [
@@ -161,7 +335,7 @@
             "type" : "VEC3"
         },
         {
-            "bufferView" : 11,
+            "bufferView" : 23,
             "componentType" : 5126,
             "count" : 216,
             "max" : [
@@ -179,7 +353,7 @@
             "type" : "VEC4"
         },
         {
-            "bufferView" : 12,
+            "bufferView" : 24,
             "componentType" : 5126,
             "count" : 216,
             "max" : [
@@ -189,180 +363,6 @@
             "min" : [
                 0.0,
                 0.0
-            ],
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 13,
-            "componentType" : 5121,
-            "count" : 78,
-            "max" : [
-                27
-            ],
-            "min" : [
-                0
-            ],
-            "type" : "SCALAR"
-        },
-        {
-            "bufferView" : 14,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.9292892813682556,
-                0.0,
-                0.9292892813682556
-            ],
-            "min" : [
-                -0.9292894005775452,
-                0.0,
-                -0.9292894005775452
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 15,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.0,
-                1.0,
-                -0.0
-            ],
-            "min" : [
-                0.0,
-                1.0,
-                -0.0
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 16,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.9646446704864502,
-                0.9646446593105793
-            ],
-            "min" : [
-                0.0353553406894207,
-                0.035355329513549805
-            ],
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 17,
-            "componentType" : 5121,
-            "count" : 78,
-            "max" : [
-                27
-            ],
-            "min" : [
-                0
-            ],
-            "type" : "SCALAR"
-        },
-        {
-            "bufferView" : 18,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.9292892813682556,
-                0.0,
-                0.9292892813682556
-            ],
-            "min" : [
-                -0.9292894005775452,
-                0.0,
-                -0.9292894005775452
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 19,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.0,
-                1.0,
-                -0.0
-            ],
-            "min" : [
-                0.0,
-                1.0,
-                -0.0
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 20,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.9646446704864502,
-                0.9646446593105793
-            ],
-            "min" : [
-                0.0353553406894207,
-                0.035355329513549805
-            ],
-            "type" : "VEC2"
-        },
-        {
-            "bufferView" : 21,
-            "componentType" : 5121,
-            "count" : 78,
-            "max" : [
-                27
-            ],
-            "min" : [
-                0
-            ],
-            "type" : "SCALAR"
-        },
-        {
-            "bufferView" : 22,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.9292892813682556,
-                0.0,
-                0.9292892813682556
-            ],
-            "min" : [
-                -0.9292894005775452,
-                0.0,
-                -0.9292894005775452
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 23,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.0,
-                1.0,
-                -0.0
-            ],
-            "min" : [
-                0.0,
-                1.0,
-                -0.0
-            ],
-            "type" : "VEC3"
-        },
-        {
-            "bufferView" : 24,
-            "componentType" : 5126,
-            "count" : 28,
-            "max" : [
-                0.9646446704864502,
-                0.9646446593105793
-            ],
-            "min" : [
-                0.0353553406894207,
-                0.035355329513549805
             ],
             "type" : "VEC2"
         },
@@ -480,104 +480,104 @@
         },
         {
             "buffer" : 0,
-            "byteLength" : 900,
+            "byteLength" : 78,
             "byteOffset" : 1952,
             "target" : 34963
         },
         {
             "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 2032,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 2368,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 2704,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 2928,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 3008,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 3344,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 3680,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 78,
+            "byteOffset" : 3904,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 3984,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 336,
+            "byteOffset" : 4320,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 224,
+            "byteOffset" : 4656,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 900,
+            "byteOffset" : 4880,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
             "byteLength" : 2592,
-            "byteOffset" : 2852,
+            "byteOffset" : 5780,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 2592,
-            "byteOffset" : 5444,
+            "byteOffset" : 8372,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 3456,
-            "byteOffset" : 8036,
+            "byteOffset" : 10964,
             "target" : 34962
         },
         {
             "buffer" : 0,
             "byteLength" : 1728,
-            "byteOffset" : 11492,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 78,
-            "byteOffset" : 13220,
-            "target" : 34963
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 336,
-            "byteOffset" : 13300,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 336,
-            "byteOffset" : 13636,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 224,
-            "byteOffset" : 13972,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 78,
-            "byteOffset" : 14196,
-            "target" : 34963
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 336,
-            "byteOffset" : 14276,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 336,
-            "byteOffset" : 14612,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 224,
-            "byteOffset" : 14948,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 78,
-            "byteOffset" : 15172,
-            "target" : 34963
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 336,
-            "byteOffset" : 15252,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 336,
-            "byteOffset" : 15588,
-            "target" : 34962
-        },
-        {
-            "buffer" : 0,
-            "byteLength" : 224,
-            "byteOffset" : 15924,
+            "byteOffset" : 14420,
             "target" : 34962
         },
         {
@@ -613,7 +613,7 @@
     ],
     "meshes" : [
         {
-            "name" : "sticker_mesh.red",
+            "name" : "sticker_mesh.blue",
             "primitives" : [
                 {
                     "attributes" : {
@@ -626,7 +626,7 @@
             ]
         },
         {
-            "name" : "sticker_mesh.green",
+            "name" : "sticker_mesh.orange",
             "primitives" : [
                 {
                     "attributes" : {
@@ -639,42 +639,15 @@
             ]
         },
         {
-            "name" : "block_mesh",
+            "name" : "sticker_mesh.green",
             "primitives" : [
                 {
                     "attributes" : {
                         "NORMAL" : 10,
                         "POSITION" : 9,
-                        "TANGENT" : 11,
-                        "TEXCOORD_0" : 12
+                        "TEXCOORD_0" : 11
                     },
                     "indices" : 8
-                }
-            ]
-        },
-        {
-            "name" : "sticker_mesh.white",
-            "primitives" : [
-                {
-                    "attributes" : {
-                        "NORMAL" : 15,
-                        "POSITION" : 14,
-                        "TEXCOORD_0" : 16
-                    },
-                    "indices" : 13
-                }
-            ]
-        },
-        {
-            "name" : "sticker_mesh.orange",
-            "primitives" : [
-                {
-                    "attributes" : {
-                        "NORMAL" : 19,
-                        "POSITION" : 18,
-                        "TEXCOORD_0" : 20
-                    },
-                    "indices" : 17
                 }
             ]
         },
@@ -683,16 +656,43 @@
             "primitives" : [
                 {
                     "attributes" : {
-                        "NORMAL" : 23,
-                        "POSITION" : 22,
-                        "TEXCOORD_0" : 24
+                        "NORMAL" : 14,
+                        "POSITION" : 13,
+                        "TEXCOORD_0" : 15
                     },
-                    "indices" : 21
+                    "indices" : 12
                 }
             ]
         },
         {
-            "name" : "sticker_mesh.blue",
+            "name" : "sticker_mesh.red",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 18,
+                        "POSITION" : 17,
+                        "TEXCOORD_0" : 19
+                    },
+                    "indices" : 16
+                }
+            ]
+        },
+        {
+            "name" : "block_mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 22,
+                        "POSITION" : 21,
+                        "TANGENT" : 23,
+                        "TEXCOORD_0" : 24
+                    },
+                    "indices" : 20
+                }
+            ]
+        },
+        {
+            "name" : "sticker_mesh.white",
             "primitives" : [
                 {
                     "attributes" : {
@@ -710,8 +710,8 @@
             "children" : [
                 26
             ],
-            "mesh" : 2,
-            "name" : "block.center.blue",
+            "mesh" : 5,
+            "name" : "block_center_blue",
             "rotation" : [
                 -1.1520234721729139e-07,
                 0.7071068286895752,
@@ -728,8 +728,8 @@
             "children" : [
                 35
             ],
-            "mesh" : 2,
-            "name" : "block.center.green",
+            "mesh" : 5,
+            "name" : "block_center_green",
             "rotation" : [
                 0.7071068286895752,
                 0.0,
@@ -746,8 +746,8 @@
             "children" : [
                 44
             ],
-            "mesh" : 2,
-            "name" : "block.center.orange",
+            "mesh" : 5,
+            "name" : "block_center_orange",
             "rotation" : [
                 0.5000001192092896,
                 -0.49999985098838806,
@@ -764,8 +764,8 @@
             "children" : [
                 53
             ],
-            "mesh" : 2,
-            "name" : "block.center.red",
+            "mesh" : 5,
+            "name" : "block_center_red",
             "rotation" : [
                 0.5,
                 0.5,
@@ -782,8 +782,8 @@
             "children" : [
                 62
             ],
-            "mesh" : 2,
-            "name" : "block.center.white",
+            "mesh" : 5,
+            "name" : "block_center_white",
             "translation" : [
                 0.0,
                 2.0,
@@ -794,8 +794,8 @@
             "children" : [
                 71
             ],
-            "mesh" : 2,
-            "name" : "block.center.yellow",
+            "mesh" : 5,
+            "name" : "block_center_yellow",
             "rotation" : [
                 1.0,
                 0.0,
@@ -814,8 +814,8 @@
                 48,
                 72
             ],
-            "mesh" : 2,
-            "name" : "block.corner.blue_orange_yellow",
+            "mesh" : 5,
+            "name" : "block_corner_blue_orange_yellow",
             "rotation" : [
                 1.9470718370939721e-07,
                 1.6292068494294654e-07,
@@ -834,8 +834,8 @@
                 57,
                 73
             ],
-            "mesh" : 2,
-            "name" : "block.corner.green_red_yellow",
+            "mesh" : 5,
+            "name" : "block_corner_green_red_yellow",
             "rotation" : [
                 1.0,
                 0.0,
@@ -854,8 +854,8 @@
                 46,
                 74
             ],
-            "mesh" : 2,
-            "name" : "block.corner.orange_green_yellow",
+            "mesh" : 5,
+            "name" : "block_corner_orange_green_yellow",
             "rotation" : [
                 -0.7071067094802856,
                 1.152023116901546e-07,
@@ -874,8 +874,8 @@
                 54,
                 75
             ],
-            "mesh" : 2,
-            "name" : "block.corner.red_blue_yellow",
+            "mesh" : 5,
+            "name" : "block_corner_red_blue_yellow",
             "rotation" : [
                 0.7071069478988647,
                 1.1520233300643667e-07,
@@ -894,8 +894,8 @@
                 56,
                 63
             ],
-            "mesh" : 2,
-            "name" : "block.corner.white_blue_red",
+            "mesh" : 5,
+            "name" : "block_corner_white_blue_red",
             "translation" : [
                 2.0,
                 2.0,
@@ -908,8 +908,8 @@
                 47,
                 64
             ],
-            "mesh" : 2,
-            "name" : "block.corner.white_green_orange",
+            "mesh" : 5,
+            "name" : "block_corner_white_green_orange",
             "rotation" : [
                 0.0,
                 1.0,
@@ -928,8 +928,8 @@
                 45,
                 65
             ],
-            "mesh" : 2,
-            "name" : "block.corner.white_orange_blue",
+            "mesh" : 5,
+            "name" : "block_corner_white_orange_blue",
             "rotation" : [
                 0.0,
                 0.7071068286895752,
@@ -948,8 +948,8 @@
                 55,
                 66
             ],
-            "mesh" : 2,
-            "name" : "block.corner.white_red_green",
+            "mesh" : 5,
+            "name" : "block_corner_white_red_green",
             "rotation" : [
                 0.0,
                 -0.7071065902709961,
@@ -967,8 +967,8 @@
                 31,
                 49
             ],
-            "mesh" : 2,
-            "name" : "block.edge.blue_orange",
+            "mesh" : 5,
+            "name" : "block_edge_blue_orange",
             "rotation" : [
                 -0.5000000596046448,
                 0.5000000596046448,
@@ -986,8 +986,8 @@
                 34,
                 76
             ],
-            "mesh" : 2,
-            "name" : "block.edge.blue_yellow",
+            "mesh" : 5,
+            "name" : "block_edge_blue_yellow",
             "rotation" : [
                 0.7071069478988647,
                 1.1520233300643667e-07,
@@ -1005,8 +1005,8 @@
                 41,
                 59
             ],
-            "mesh" : 2,
-            "name" : "block.edge.green_red",
+            "mesh" : 5,
+            "name" : "block_edge_green_red",
             "rotation" : [
                 -0.49999988079071045,
                 -0.49999985098838806,
@@ -1024,8 +1024,8 @@
                 43,
                 77
             ],
-            "mesh" : 2,
-            "name" : "block.edge.green_yellow",
+            "mesh" : 5,
+            "name" : "block_edge_green_yellow",
             "rotation" : [
                 -0.7071067094802856,
                 1.152023116901546e-07,
@@ -1043,8 +1043,8 @@
                 40,
                 50
             ],
-            "mesh" : 2,
-            "name" : "block.edge.orange_green",
+            "mesh" : 5,
+            "name" : "block_edge_orange_green",
             "rotation" : [
                 8.429372400087232e-08,
                 -0.7071068286895752,
@@ -1062,8 +1062,8 @@
                 52,
                 78
             ],
-            "mesh" : 2,
-            "name" : "block.edge.orange_yellow",
+            "mesh" : 5,
+            "name" : "block_edge_orange_yellow",
             "rotation" : [
                 1.9470718370939721e-07,
                 1.6292068494294654e-07,
@@ -1081,8 +1081,8 @@
                 32,
                 58
             ],
-            "mesh" : 2,
-            "name" : "block.edge.red_blue",
+            "mesh" : 5,
+            "name" : "block_edge_red_blue",
             "rotation" : [
                 -0.7071068286895752,
                 0.0,
@@ -1100,8 +1100,8 @@
                 61,
                 79
             ],
-            "mesh" : 2,
-            "name" : "block.edge.red_yellow",
+            "mesh" : 5,
+            "name" : "block_edge_red_yellow",
             "rotation" : [
                 1.0,
                 0.0,
@@ -1119,8 +1119,8 @@
                 33,
                 67
             ],
-            "mesh" : 2,
-            "name" : "block.edge.white_blue",
+            "mesh" : 5,
+            "name" : "block_edge_white_blue",
             "rotation" : [
                 0.0,
                 0.7071068286895752,
@@ -1138,8 +1138,8 @@
                 42,
                 68
             ],
-            "mesh" : 2,
-            "name" : "block.edge.white_green",
+            "mesh" : 5,
+            "name" : "block_edge_white_green",
             "rotation" : [
                 0.0,
                 -0.7071065902709961,
@@ -1157,8 +1157,8 @@
                 51,
                 69
             ],
-            "mesh" : 2,
-            "name" : "block.edge.white_orange",
+            "mesh" : 5,
+            "name" : "block_edge_white_orange",
             "rotation" : [
                 0.0,
                 1.0,
@@ -1176,8 +1176,8 @@
                 60,
                 70
             ],
-            "mesh" : 2,
-            "name" : "block.edge.white_red",
+            "mesh" : 5,
+            "name" : "block_edge_white_red",
             "translation" : [
                 2.0,
                 2.0,
@@ -1185,7 +1185,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_center",
             "translation" : [
                 5.108972800371703e-08,
@@ -1194,7 +1194,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_corner_orange_yellow",
             "rotation" : [
                 -0.7071068286895752,
@@ -1214,7 +1214,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_corner_red_white",
             "rotation" : [
                 -0.7071068286895752,
@@ -1229,7 +1229,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_corner_white_orange",
             "rotation" : [
                 -1.5454313384566376e-08,
@@ -1244,7 +1244,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_corner_yellow_red",
             "rotation" : [
                 2.6692489996094082e-08,
@@ -1259,7 +1259,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_edge_orange",
             "rotation" : [
                 -2.6692537957728746e-08,
@@ -1279,7 +1279,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_edge_red",
             "translation" : [
                 1.1920928955078125e-07,
@@ -1288,7 +1288,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_edge_white",
             "rotation" : [
                 -2.6692543286799264e-08,
@@ -1303,7 +1303,7 @@
             ]
         },
         {
-            "mesh" : 6,
+            "mesh" : 0,
             "name" : "sticker_blue_edge_yellow",
             "rotation" : [
                 2.6692539734085585e-08,
@@ -1318,7 +1318,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_center",
             "translation" : [
                 5.10896995820076e-08,
@@ -1327,7 +1327,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_corner_orange_white",
             "rotation" : [
                 -0.7071068286895752,
@@ -1347,7 +1347,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_corner_red_yellow",
             "rotation" : [
                 -0.7071068286895752,
@@ -1362,7 +1362,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_corner_white_red",
             "rotation" : [
                 1.826028572793348e-08,
@@ -1377,7 +1377,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_corner_yellow_orange",
             "rotation" : [
                 -2.1073418565720203e-08,
@@ -1392,7 +1392,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_edge_orange",
             "rotation" : [
                 -8.881784197001252e-16,
@@ -1412,7 +1412,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_edge_red",
             "rotation" : [
                 2.6692543286799264e-08,
@@ -1427,7 +1427,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_edge_white",
             "rotation" : [
                 2.6692543286799264e-08,
@@ -1442,7 +1442,7 @@
             ]
         },
         {
-            "mesh" : 1,
+            "mesh" : 2,
             "name" : "sticker_green_edge_yellow",
             "rotation" : [
                 -2.6692539734085585e-08,
@@ -1462,7 +1462,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_center",
             "translation" : [
                 5.108972800371703e-08,
@@ -1471,7 +1471,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_corner_blue_white",
             "rotation" : [
                 -0.7071068286895752,
@@ -1486,7 +1486,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_corner_green_yellow",
             "rotation" : [
                 -0.7071068286895752,
@@ -1501,7 +1501,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_corner_white_green",
             "rotation" : [
                 -1.9670371997904113e-08,
@@ -1521,7 +1521,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_corner_yellow_blue",
             "rotation" : [
                 3.1496832052224644e-14,
@@ -1541,7 +1541,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_edge_blue",
             "rotation" : [
                 -8.881784197001252e-16,
@@ -1561,7 +1561,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_edge_green",
             "rotation" : [
                 1.758503756564382e-14,
@@ -1581,7 +1581,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_edge_white",
             "rotation" : [
                 8.69753335514976e-15,
@@ -1596,7 +1596,7 @@
             ]
         },
         {
-            "mesh" : 4,
+            "mesh" : 1,
             "name" : "sticker_orange_edge_yellow",
             "rotation" : [
                 1.1399646383922126e-14,
@@ -1611,7 +1611,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_center",
             "rotation" : [
                 0.0,
@@ -1626,7 +1626,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_corner_blue_yellow",
             "rotation" : [
                 -0.7071068286895752,
@@ -1641,7 +1641,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_corner_green_white",
             "rotation" : [
                 -0.7071068286895752,
@@ -1656,7 +1656,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_corner_white_blue",
             "rotation" : [
                 0.0,
@@ -1671,7 +1671,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_corner_yellow_green",
             "rotation" : [
                 0.0,
@@ -1686,7 +1686,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_edge_blue",
             "rotation" : [
                 0.0,
@@ -1701,7 +1701,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_edge_green",
             "rotation" : [
                 -1.7763568394002505e-15,
@@ -1716,7 +1716,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_edge_white",
             "rotation" : [
                 0.0,
@@ -1731,7 +1731,7 @@
             ]
         },
         {
-            "mesh" : 0,
+            "mesh" : 4,
             "name" : "sticker_red_edge_yellow",
             "rotation" : [
                 0.0,
@@ -1746,7 +1746,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_center",
             "translation" : [
                 5.10896995820076e-08,
@@ -1755,7 +1755,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_corner_blue_red",
             "translation" : [
                 0.0,
@@ -1764,7 +1764,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_corner_green_orange",
             "rotation" : [
                 0.0,
@@ -1784,7 +1784,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_corner_orange_blue",
             "rotation" : [
                 -1.7763568394002505e-15,
@@ -1799,7 +1799,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_corner_red_green",
             "rotation" : [
                 -5.684341886080802e-14,
@@ -1814,7 +1814,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_edge_blue",
             "translation" : [
                 0.0,
@@ -1823,7 +1823,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_edge_green",
             "translation" : [
                 0.0,
@@ -1832,7 +1832,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_edge_orange",
             "translation" : [
                 0.0,
@@ -1841,7 +1841,7 @@
             ]
         },
         {
-            "mesh" : 3,
+            "mesh" : 6,
             "name" : "sticker_white_edge_red",
             "translation" : [
                 0.0,
@@ -1850,7 +1850,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_center",
             "translation" : [
                 5.10896995820076e-08,
@@ -1859,7 +1859,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_corner_blue_orange",
             "rotation" : [
                 7.105428204633949e-15,
@@ -1879,7 +1879,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_corner_green_red",
             "translation" : [
                 0.0,
@@ -1888,7 +1888,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_corner_orange_green",
             "rotation" : [
                 4.3065636844944084e-15,
@@ -1903,7 +1903,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_corner_red_blue",
             "rotation" : [
                 -3.3950672947893196e-14,
@@ -1918,7 +1918,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_edge_blue",
             "rotation" : [
                 9.366608915350669e-16,
@@ -1933,7 +1933,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_edge_green",
             "rotation" : [
                 1.1169752536433126e-15,
@@ -1953,7 +1953,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_edge_orange",
             "rotation" : [
                 0.0,
@@ -1968,7 +1968,7 @@
             ]
         },
         {
-            "mesh" : 5,
+            "mesh" : 3,
             "name" : "sticker_yellow_edge_red",
             "translation" : [
                 0.0,

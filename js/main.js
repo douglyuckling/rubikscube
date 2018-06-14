@@ -1,6 +1,7 @@
 import textures from './textures.js';
 import materials from './materials.js';
 import {loadRubiksCube} from './rubiksCubeModel.js';
+import RubiksCubeBehavior from './RubiksCubeBehavior.js';
 
 function initMainScene() {
     const scene = new THREE.Scene();
@@ -85,6 +86,8 @@ controls.autoRotate = true;
 controls.autoRotateSpeed = 0.25;
 controls.mouseButtons.ORBIT = THREE.MOUSE.MIDDLE;
 
+const behavior = new RubiksCubeBehavior();
+
 window.addEventListener('resize', () => {
     updateRendererSize();
 }, false);
@@ -100,6 +103,7 @@ function updateRendererSize() {
 
 function render() {
     controls.update();
+    behavior.update();
 
     skyBox.render(renderer, camera);
     renderer.render(scene, camera);
