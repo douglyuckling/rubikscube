@@ -44,7 +44,8 @@ export default class RubiksCubeBehavior {
             this.axisSigns['x'] = Math.sign(positionsByColor.get('red').x - positionsByColor.get('orange').x);
             this.axisSigns['y'] = Math.sign(positionsByColor.get('white').y - positionsByColor.get('yellow').y);
             this.axisSigns['z'] = Math.sign(positionsByColor.get('blue').z - positionsByColor.get('green').z);
-            this.animateColorTurningCounterClockwise('white');
+
+            this.animateColorsTurningCounterClockwise();
         });
     }
 
@@ -52,12 +53,28 @@ export default class RubiksCubeBehavior {
         return this._ready;
     }
 
+    animateColorsTurningCounterClockwise() {
+        if (!this.ready) {
+            return;
+        }
+
+        const animateNextColor = (i) => {
+            const color = colors[i];
+            this.animateColorTurningCounterClockwise(color).then(() => {
+                animateNextColor((i+1) % colors.length);
+            });
+        };
+        animateNextColor(0);
+    }
+
     animateColorTurningCounterClockwise(color) {
         if (!this.ready) {
             return;
         }
 
-        this.animations.push(this.createAnimationForColor(color));
+        const animation = this.createAnimationForColor(color);
+        this.animations.push(animation);
+        return animation.promise;
     }
 
     createAnimationForColor(color) {
@@ -73,13 +90,20 @@ export default class RubiksCubeBehavior {
             }, this.computePoseInPolarCoordinates(blockMesh, axisConfig)));
         });
 
-        return {
+        const animation = {
             axisConfig,
             originalPosesByMesh,
             deltaTheta: Math.PI / 2,
             startTime: null,
             duration: 1000
         };
+
+        animation.promise = new Promise((resolve, reject) => {
+            animation.resolve = resolve;
+            animation.reject = reject;
+        });
+
+        return animation;
     }
 
     computePoseInPolarCoordinates(blockMesh, axisConfig) {
@@ -117,6 +141,7 @@ export default class RubiksCubeBehavior {
             });
 
             if (t >= 1.0) {
+                animation.resolve();
                 this.animations.shift();
             }
         }
