@@ -76,8 +76,9 @@ export default class RubiksCubeBehavior {
         return {
             axisConfig,
             originalPosesByMesh,
-            theta: 0,
-            dTheta: 0.01
+            deltaTheta: Math.PI / 2,
+            startTime: null,
+            duration: 1000
         };
     }
 
@@ -97,11 +98,17 @@ export default class RubiksCubeBehavior {
 
         if (this.animations.length > 0) {
             const animation = this.animations[0];
+            const now = new Date();
+            if (!animation.startTime) {
+                animation.startTime = now;
+            }
+            const dt = now - animation.startTime;
+            const t = Math.min(1.0, dt / animation.duration);
 
             const rotationAxis = animation.axisConfig.rotationAxis;
             const sinAxis = animation.axisConfig.sinAxis;
             const cosAxis = animation.axisConfig.cosAxis;
-            const relativeTheta = animation.axisConfig.rotationDirection * animation.theta;
+            const relativeTheta = animation.axisConfig.rotationDirection * t * animation.deltaTheta;
 
             animation.originalPosesByMesh.forEach((originalPose, blockMesh) => {
                 blockMesh.rotation[rotationAxis] = originalPose.rotation[rotationAxis] + this.axisSigns[rotationAxis] * relativeTheta;
@@ -109,7 +116,9 @@ export default class RubiksCubeBehavior {
                 blockMesh.position[cosAxis] = this.axisSigns[cosAxis] * originalPose.r * Math.cos(originalPose.theta + relativeTheta);
             });
 
-            animation.theta += animation.dTheta;
+            if (t >= 1.0) {
+                this.animations.shift();
+            }
         }
     }
 
