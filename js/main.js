@@ -84,7 +84,7 @@ controls.maxPolarAngle = Math.PI;
 controls.enablePan = false;
 controls.autoRotate = true;
 controls.autoRotateSpeed = 0.25;
-controls.mouseButtons.ORBIT = THREE.MOUSE.MIDDLE;
+controls.mouseButtons.ORBIT = THREE.MOUSE.LEFT;
 
 const behavior = new RubiksCubeBehavior();
 
