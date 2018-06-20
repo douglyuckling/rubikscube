@@ -53,7 +53,7 @@ export default class RubiksCubeBehavior {
             this.axisSigns['y'] = Math.sign(positionsByColor.get('white').y - positionsByColor.get('yellow').y);
             this.axisSigns['z'] = Math.sign(positionsByColor.get('blue').z - positionsByColor.get('green').z);
 
-            this.animateColorsTurningCounterClockwise(['green', 'red']);
+            this.animateColorsTurningCounterClockwise(colors);
         });
     }
 
@@ -102,7 +102,7 @@ export default class RubiksCubeBehavior {
                 quaternion: blockMesh.quaternion.clone(),
             }, this.computePoseInPolarCoordinates(blockMesh, axisConfig)));
             finalPosesByMesh.set(blockMesh, {
-                quaternion: blockMesh.quaternion.clone().multiply(quaternion)
+                quaternion: blockMesh.quaternion.clone().premultiply(quaternion),
             });
         });
 
