@@ -54,10 +54,12 @@ export default class RubiksCubeBehavior {
             this.axisSigns['z'] = Math.sign(positionsByColor.get('blue').z - positionsByColor.get('green').z);
 
             this.animateFacesTurning([
-                {face: 'red', direction: -1},
-                {face: 'green', direction: 1},
-                {face: 'red', direction: 1},
-                {face: 'green', direction: -1},
+                {face: 'red', turns: 2},
+                {face: 'orange', turns: 2},
+                {face: 'white', turns: 2},
+                {face: 'yellow', turns: 2},
+                {face: 'green', turns: 2},
+                {face: 'blue', turns: 2},
             ]);
         });
     }
@@ -66,37 +68,37 @@ export default class RubiksCubeBehavior {
         return this._ready;
     }
 
-    animateFacesTurning(turns) {
+    animateFacesTurning(steps) {
         if (!this.ready) {
             return;
         }
 
         const animateNextTurn = (i) => {
-            const turn = turns[i];
-            this.animateFaceTurning(turn.face, turn.direction).then(() => {
-                animateNextTurn((i + 1) % turns.length);
+            const step = steps[i];
+            this.animateFaceTurning(step.face, step.turns).then(() => {
+                animateNextTurn((i + 1) % steps.length);
             });
         };
         animateNextTurn(0);
     }
 
-    animateFaceTurning(face, direction) {
+    animateFaceTurning(face, turns) {
         if (!this.ready) {
             return;
         }
 
-        const animation = this.createAnimationForFace(face, direction);
+        const animation = this.createAnimationForFace(face, turns);
         this.animations.push(animation);
         return animation.promise;
     }
 
-    createAnimationForFace(face, direction) {
+    createAnimationForFace(face, turns) {
         if (!this.ready) {
             throw Error("Cannot create animation before cube is ready");
         }
 
         const axisConfig = axisConfigByColor[face];
-        const deltaTheta = -direction * Math.PI / 2;
+        const deltaTheta = -turns * Math.PI / 2;
 
         const quaternion = new THREE.Quaternion();
         quaternion.setFromAxisAngle(axisConfig.vector, deltaTheta);
@@ -114,7 +116,7 @@ export default class RubiksCubeBehavior {
 
         const animation = {
             face,
-            direction,
+            turns,
             axisConfig,
             originalPosesByMesh,
             finalPosesByMesh,
@@ -167,7 +169,7 @@ export default class RubiksCubeBehavior {
             });
 
             if (t >= 1.0) {
-                this.updateAdjacencyAfterRotation(animation.face, animation.direction);
+                this.updateAdjacencyAfterRotation(animation.face, animation.turns);
                 animation.resolve();
                 this.animations.shift();
             }
