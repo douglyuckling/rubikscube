@@ -3,12 +3,12 @@ import {loadRubiksCube} from './rubiksCubeModel.js';
 const colors = Object.freeze(['white', 'red', 'blue', 'orange', 'green', 'yellow']);
 
 const axisConfigByColor = {
-    'red': {rotationAxis: 'x', sinAxis: 'y', cosAxis: 'z', rotationDirection: 1, vector: new THREE.Vector3(1, 0, 0)},
-    'orange': {rotationAxis: 'x', sinAxis: 'y', cosAxis: 'z', rotationDirection: -1, vector: new THREE.Vector3(-1, 0, 0)},
-    'white': {rotationAxis: 'y', sinAxis: 'z', cosAxis: 'x', rotationDirection: 1, vector: new THREE.Vector3(0, 1, 0)},
-    'yellow': {rotationAxis: 'y', sinAxis: 'z', cosAxis: 'x', rotationDirection: -1, vector: new THREE.Vector3(0, -1, 0)},
-    'blue': {rotationAxis: 'z', sinAxis: 'x', cosAxis: 'y', rotationDirection: 1, vector: new THREE.Vector3(0, 0, -1)},
-    'green': {rotationAxis: 'z', sinAxis: 'x', cosAxis: 'y', rotationDirection: -1, vector: new THREE.Vector3(0, 0, 1)},
+    'red': {sinAxis: 'y', cosAxis: 'z', rotationDirection: 1, vector: new THREE.Vector3(1, 0, 0)},
+    'orange': {sinAxis: 'y', cosAxis: 'z', rotationDirection: -1, vector: new THREE.Vector3(-1, 0, 0)},
+    'white': {sinAxis: 'z', cosAxis: 'x', rotationDirection: 1, vector: new THREE.Vector3(0, 1, 0)},
+    'yellow': {sinAxis: 'z', cosAxis: 'x', rotationDirection: -1, vector: new THREE.Vector3(0, -1, 0)},
+    'blue': {sinAxis: 'x', cosAxis: 'y', rotationDirection: 1, vector: new THREE.Vector3(0, 0, -1)},
+    'green': {sinAxis: 'x', cosAxis: 'y', rotationDirection: -1, vector: new THREE.Vector3(0, 0, 1)},
 };
 
 const topologyByColor = {
@@ -53,7 +53,12 @@ export default class RubiksCubeBehavior {
             this.axisSigns['y'] = Math.sign(positionsByColor.get('white').y - positionsByColor.get('yellow').y);
             this.axisSigns['z'] = Math.sign(positionsByColor.get('blue').z - positionsByColor.get('green').z);
 
-            this.animateColorsTurningCounterClockwise(colors);
+            this.animateFacesTurning([
+                {face: 'red', direction: -1},
+                {face: 'green', direction: 1},
+                {face: 'red', direction: 1},
+                {face: 'green', direction: -1},
+            ]);
         });
     }
 
@@ -61,43 +66,44 @@ export default class RubiksCubeBehavior {
         return this._ready;
     }
 
-    animateColorsTurningCounterClockwise(colorSequence) {
+    animateFacesTurning(turns) {
         if (!this.ready) {
             return;
         }
 
-        const animateNextColor = (i) => {
-            const color = colorSequence[i];
-            this.animateColorTurningCounterClockwise(color).then(() => {
-                animateNextColor((i + 1) % colorSequence.length);
+        const animateNextTurn = (i) => {
+            const turn = turns[i];
+            this.animateFaceTurning(turn.face, turn.direction).then(() => {
+                animateNextTurn((i + 1) % turns.length);
             });
         };
-        animateNextColor(0);
+        animateNextTurn(0);
     }
 
-    animateColorTurningCounterClockwise(color) {
+    animateFaceTurning(face, direction) {
         if (!this.ready) {
             return;
         }
 
-        const animation = this.createAnimationForColor(color);
+        const animation = this.createAnimationForFace(face, direction);
         this.animations.push(animation);
         return animation.promise;
     }
 
-    createAnimationForColor(color) {
+    createAnimationForFace(face, direction) {
         if (!this.ready) {
             throw Error("Cannot create animation before cube is ready");
         }
 
-        const axisConfig = axisConfigByColor[color];
+        const axisConfig = axisConfigByColor[face];
+        const deltaTheta = direction * Math.PI / 2;
 
         const quaternion = new THREE.Quaternion();
-        quaternion.setFromAxisAngle(axisConfig.vector, Math.PI / 2);
+        quaternion.setFromAxisAngle(axisConfig.vector, deltaTheta);
 
         const originalPosesByMesh = new Map();
         const finalPosesByMesh = new Map();
-        this.blockMeshesByCenterColor.get(color).forEach(blockMesh => {
+        this.blockMeshesByCenterColor.get(face).forEach(blockMesh => {
             originalPosesByMesh.set(blockMesh, Object.assign({
                 quaternion: blockMesh.quaternion.clone(),
             }, this.computePoseInPolarCoordinates(blockMesh, axisConfig)));
@@ -107,14 +113,15 @@ export default class RubiksCubeBehavior {
         });
 
         const animation = {
-            color,
+            face,
+            direction,
             axisConfig,
             originalPosesByMesh,
             finalPosesByMesh,
             quaternion,
-            deltaTheta: Math.PI / 2,
+            deltaTheta,
             startTime: null,
-            duration: 2000,
+            duration: 500,
         };
 
         animation.promise = new Promise((resolve, reject) => {
@@ -148,7 +155,6 @@ export default class RubiksCubeBehavior {
             const dt = now - animation.startTime;
             const t = Math.min(1.0, dt / animation.duration);
 
-            const rotationAxis = animation.axisConfig.rotationAxis;
             const sinAxis = animation.axisConfig.sinAxis;
             const cosAxis = animation.axisConfig.cosAxis;
             const relativeTheta = animation.axisConfig.rotationDirection * t * animation.deltaTheta;
@@ -161,7 +167,7 @@ export default class RubiksCubeBehavior {
             });
 
             if (t >= 1.0) {
-                this.updateAdjacencyAfterRotation(animation.color, 1);
+                this.updateAdjacencyAfterRotation(animation.face, animation.direction);
                 animation.resolve();
                 this.animations.shift();
             }
