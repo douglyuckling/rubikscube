@@ -110,7 +110,18 @@ function render() {
 }
 
 function animate() {
-    requestAnimationFrame(animate);
+    if (!window.paused) {
+        requestAnimationFrame(animate);
+    }
     render();
 }
 animate();
+
+window.addEventListener('keyup', (event) => {
+    if (event.code === 'Space') {
+        window.paused = !window.paused;
+        if (!window.paused) {
+            animate();
+        }
+    }
+}, false);
