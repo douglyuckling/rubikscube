@@ -12,12 +12,12 @@ const axisConfigByColor = {
 };
 
 const topologyByColor = {
-    'red': {adjacentFaces: ['white', 'green', 'yellow', 'blue']},
-    'orange': {adjacentFaces: ['white', 'blue', 'yellow', 'green']},
-    'white': {adjacentFaces: ['red', 'blue', 'orange', 'green']},
-    'yellow': {adjacentFaces: ['red', 'green', 'orange', 'blue']},
-    'blue': {adjacentFaces: ['white', 'red', 'yellow', 'orange']},
-    'green': {adjacentFaces: ['white', 'orange', 'yellow', 'red']},
+    'red': {adjacentFaces: ['white', 'blue', 'yellow', 'green']},
+    'orange': {adjacentFaces: ['white', 'green', 'yellow', 'blue']},
+    'white': {adjacentFaces: ['red', 'green', 'orange', 'blue']},
+    'yellow': {adjacentFaces: ['red', 'blue', 'orange', 'green']},
+    'blue': {adjacentFaces: ['white', 'orange', 'yellow', 'red']},
+    'green': {adjacentFaces: ['white', 'red', 'yellow', 'orange']},
 };
 
 export default class RubiksCubeBehavior {
@@ -96,7 +96,7 @@ export default class RubiksCubeBehavior {
         }
 
         const axisConfig = axisConfigByColor[face];
-        const deltaTheta = direction * Math.PI / 2;
+        const deltaTheta = -direction * Math.PI / 2;
 
         const quaternion = new THREE.Quaternion();
         quaternion.setFromAxisAngle(axisConfig.vector, deltaTheta);
@@ -174,10 +174,10 @@ export default class RubiksCubeBehavior {
         }
     }
 
-    updateAdjacencyAfterRotation(color, numberOfCcwTurns) {
+    updateAdjacencyAfterRotation(color, numberOfClockwiseTurns) {
         const adjacentFaces = topologyByColor[color].adjacentFaces;
-        while (numberOfCcwTurns < 0) {
-            numberOfCcwTurns += adjacentFaces.length;
+        while (numberOfClockwiseTurns < 0) {
+            numberOfClockwiseTurns += adjacentFaces.length;
         }
 
         const meshesOnRotatedFace = this.blockMeshesByCenterColor.get(color);
@@ -195,7 +195,7 @@ export default class RubiksCubeBehavior {
             meshesSharedWithAdjacentFaceByAdjacentFace.set(adjacentFace, meshesSharedWithAdjacentFace);
         });
         adjacentFaces.forEach((oldFace, i) => {
-            const newFace = adjacentFaces[(i + numberOfCcwTurns) % adjacentFaces.length];
+            const newFace = adjacentFaces[(i + numberOfClockwiseTurns) % adjacentFaces.length];
             meshesSharedWithAdjacentFaceByAdjacentFace.get(oldFace).forEach(blockMesh => {
                 this.blockMeshesByCenterColor.get(newFace).push(blockMesh);
             });
