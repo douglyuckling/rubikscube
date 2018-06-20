@@ -155,7 +155,7 @@ export default class RubiksCubeBehavior {
                 animation.startTime = now;
             }
             const dt = now - animation.startTime;
-            const t = Math.min(1.0, dt / animation.duration);
+            const t = cubicInOut(Math.min(1.0, dt / animation.duration));
 
             const sinAxis = animation.axisConfig.sinAxis;
             const cosAxis = animation.axisConfig.cosAxis;
@@ -204,4 +204,9 @@ export default class RubiksCubeBehavior {
         });
     }
 
+}
+
+// Easing stolen from https://github.com/d3/d3-ease/blob/master/src/cubic.js
+function cubicInOut(t) {
+    return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
 }
