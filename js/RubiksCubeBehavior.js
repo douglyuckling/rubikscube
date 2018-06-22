@@ -3,12 +3,12 @@ import {loadRubiksCube} from './rubiksCubeModel.js';
 const colors = Object.freeze(['white', 'red', 'blue', 'orange', 'green', 'yellow']);
 
 const axisConfigByColor = {
-    'red': {sinAxis: 'y', cosAxis: 'z', rotationDirection: 1, vector: new THREE.Vector3(1, 0, 0)},
-    'orange': {sinAxis: 'y', cosAxis: 'z', rotationDirection: -1, vector: new THREE.Vector3(-1, 0, 0)},
-    'white': {sinAxis: 'z', cosAxis: 'x', rotationDirection: 1, vector: new THREE.Vector3(0, 1, 0)},
-    'yellow': {sinAxis: 'z', cosAxis: 'x', rotationDirection: -1, vector: new THREE.Vector3(0, -1, 0)},
-    'blue': {sinAxis: 'x', cosAxis: 'y', rotationDirection: 1, vector: new THREE.Vector3(0, 0, -1)},
-    'green': {sinAxis: 'x', cosAxis: 'y', rotationDirection: -1, vector: new THREE.Vector3(0, 0, 1)},
+    'red': {vector: new THREE.Vector3(1, 0, 0)},
+    'orange': {vector: new THREE.Vector3(-1, 0, 0)},
+    'white': {vector: new THREE.Vector3(0, 1, 0)},
+    'yellow': {vector: new THREE.Vector3(0, -1, 0)},
+    'blue': {vector: new THREE.Vector3(0, 0, -1)},
+    'green': {vector: new THREE.Vector3(0, 0, 1)},
 };
 
 const topologyByColor = {
@@ -28,7 +28,6 @@ export default class RubiksCubeBehavior {
 
         this._ready = false;
         this.animations = [];
-        this.axisSigns = {x: 0, y: 0, z: 0};
         this.initRubiksCubeBlocks();
     }
 
@@ -43,15 +42,6 @@ export default class RubiksCubeBehavior {
             });
 
             this._ready = true;
-
-            const positionsByColor = new Map();
-            colors.forEach(color => {
-                const blockMesh = this.blockMeshesByCenterColor.get(color).find(blockMesh => blockMesh.name.includes('center'));
-                positionsByColor.set(color, blockMesh.position.clone());
-            });
-            this.axisSigns['x'] = Math.sign(positionsByColor.get('red').x - positionsByColor.get('orange').x);
-            this.axisSigns['y'] = Math.sign(positionsByColor.get('white').y - positionsByColor.get('yellow').y);
-            this.axisSigns['z'] = Math.sign(positionsByColor.get('blue').z - positionsByColor.get('green').z);
 
             this.animateFacesTurning([
                 {face: 'red', turns: 2},
@@ -107,8 +97,9 @@ export default class RubiksCubeBehavior {
         const finalPosesByMesh = new Map();
         this.blockMeshesByCenterColor.get(face).forEach(blockMesh => {
             originalPosesByMesh.set(blockMesh, Object.assign({
+                position: blockMesh.position.clone(),
                 quaternion: blockMesh.quaternion.clone(),
-            }, this.computePoseInPolarCoordinates(blockMesh, axisConfig)));
+            }));
             finalPosesByMesh.set(blockMesh, {
                 quaternion: blockMesh.quaternion.clone().premultiply(quaternion),
             });
@@ -134,15 +125,6 @@ export default class RubiksCubeBehavior {
         return animation;
     }
 
-    computePoseInPolarCoordinates(blockMesh, axisConfig) {
-        const otherAxis0 = this.axisSigns[axisConfig.sinAxis] * blockMesh.position[axisConfig.sinAxis];
-        const otherAxis1 = this.axisSigns[axisConfig.cosAxis] * blockMesh.position[axisConfig.cosAxis];
-        return {
-            r: Math.sqrt(otherAxis0 ** 2 + otherAxis1 ** 2),
-            theta: Math.atan2(otherAxis0, otherAxis1),
-        }
-    }
-
     update() {
         if (!this.ready) {
             return;
@@ -157,15 +139,13 @@ export default class RubiksCubeBehavior {
             const dt = now - animation.startTime;
             const t = cubicInOut(Math.min(1.0, dt / animation.duration));
 
-            const sinAxis = animation.axisConfig.sinAxis;
-            const cosAxis = animation.axisConfig.cosAxis;
-            const relativeTheta = animation.axisConfig.rotationDirection * t * animation.deltaTheta;
+            const relativeTheta = t * animation.deltaTheta;
 
             animation.originalPosesByMesh.forEach((originalPose, blockMesh) => {
                 const finalPose = animation.finalPosesByMesh.get(blockMesh);
                 THREE.Quaternion.slerp(originalPose.quaternion, finalPose.quaternion, blockMesh.quaternion, t);
-                blockMesh.position[sinAxis] = this.axisSigns[sinAxis] * originalPose.r * Math.sin(originalPose.theta + relativeTheta);
-                blockMesh.position[cosAxis] = this.axisSigns[cosAxis] * originalPose.r * Math.cos(originalPose.theta + relativeTheta);
+                blockMesh.position.copy(originalPose.position);
+                blockMesh.position.applyAxisAngle(animation.axisConfig.vector, relativeTheta);
             });
 
             if (t >= 1.0) {
