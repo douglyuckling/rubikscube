@@ -2,22 +2,13 @@ import {loadRubiksCube} from './rubiksCubeModel.js';
 
 const colors = Object.freeze(['white', 'red', 'blue', 'orange', 'green', 'yellow']);
 
-const axisConfigByColor = {
-    'red': {vector: new THREE.Vector3(1, 0, 0)},
-    'orange': {vector: new THREE.Vector3(-1, 0, 0)},
-    'white': {vector: new THREE.Vector3(0, 1, 0)},
-    'yellow': {vector: new THREE.Vector3(0, -1, 0)},
-    'blue': {vector: new THREE.Vector3(0, 0, -1)},
-    'green': {vector: new THREE.Vector3(0, 0, 1)},
-};
-
-const topologyByColor = {
-    'red': {adjacentFaces: ['white', 'blue', 'yellow', 'green']},
-    'orange': {adjacentFaces: ['white', 'green', 'yellow', 'blue']},
-    'white': {adjacentFaces: ['red', 'green', 'orange', 'blue']},
-    'yellow': {adjacentFaces: ['red', 'blue', 'orange', 'green']},
-    'blue': {adjacentFaces: ['white', 'orange', 'yellow', 'red']},
-    'green': {adjacentFaces: ['white', 'red', 'yellow', 'orange']},
+const facesByColor = {
+    'red': {vector: new THREE.Vector3(1, 0, 0), adjacentFaces: ['white', 'blue', 'yellow', 'green']},
+    'orange': {vector: new THREE.Vector3(-1, 0, 0), adjacentFaces: ['white', 'green', 'yellow', 'blue']},
+    'white': {vector: new THREE.Vector3(0, 1, 0), adjacentFaces: ['red', 'green', 'orange', 'blue']},
+    'yellow': {vector: new THREE.Vector3(0, -1, 0), adjacentFaces: ['red', 'blue', 'orange', 'green']},
+    'blue': {vector: new THREE.Vector3(0, 0, -1), adjacentFaces: ['white', 'orange', 'yellow', 'red']},
+    'green': {vector: new THREE.Vector3(0, 0, 1), adjacentFaces: ['white', 'red', 'yellow', 'orange']},
 };
 
 export default class RubiksCubeBehavior {
@@ -44,12 +35,12 @@ export default class RubiksCubeBehavior {
             this._ready = true;
 
             this.animateFacesTurning([
-                {face: 'red', turns: 2},
-                {face: 'orange', turns: 2},
-                {face: 'white', turns: 2},
-                {face: 'yellow', turns: 2},
-                {face: 'green', turns: 2},
-                {face: 'blue', turns: 2},
+                {faceColor: 'red', turns: 2},
+                {faceColor: 'orange', turns: 2},
+                {faceColor: 'white', turns: 2},
+                {faceColor: 'yellow', turns: 2},
+                {faceColor: 'green', turns: 2},
+                {faceColor: 'blue', turns: 2},
             ]);
         });
     }
@@ -65,33 +56,32 @@ export default class RubiksCubeBehavior {
 
         const animateNextTurn = (i) => {
             const step = steps[i];
-            this.animateFaceTurning(step.face, step.turns).then(() => {
+            this.animateFaceTurning(step.faceColor, step.turns).then(() => {
                 animateNextTurn((i + 1) % steps.length);
             });
         };
         animateNextTurn(0);
     }
 
-    animateFaceTurning(face, turns) {
+    animateFaceTurning(faceColor, turns) {
         if (!this.ready) {
             return;
         }
 
-        const animation = this.createAnimationForFace(face, turns);
+        const animation = this.createAnimationForFace(faceColor, turns);
         this.animations.push(animation);
         return animation.promise;
     }
 
-    createAnimationForFace(face, turns) {
+    createAnimationForFace(faceColor, turns) {
         if (!this.ready) {
             throw Error("Cannot create animation before cube is ready");
         }
 
-        const axisConfig = axisConfigByColor[face];
         const deltaTheta = -turns * Math.PI / 2;
 
         const originalPosesByMesh = new Map();
-        this.blockMeshesByCenterColor.get(face).forEach(blockMesh => {
+        this.blockMeshesByCenterColor.get(faceColor).forEach(blockMesh => {
             originalPosesByMesh.set(blockMesh, Object.assign({
                 position: blockMesh.position.clone(),
                 quaternion: blockMesh.quaternion.clone(),
@@ -99,9 +89,8 @@ export default class RubiksCubeBehavior {
         });
 
         const animation = {
-            face,
+            faceColor,
             turns,
-            axisConfig,
             originalPosesByMesh,
             deltaTheta,
             startTime: null,
@@ -130,32 +119,29 @@ export default class RubiksCubeBehavior {
             const dt = now - animation.startTime;
             const t = cubicInOut(Math.min(1.0, dt / animation.duration));
 
-            const relativeTheta = t * animation.deltaTheta;
-            const quaternion = new THREE.Quaternion();
-            quaternion.setFromAxisAngle(animation.axisConfig.vector, relativeTheta);
+            const face = facesByColor[animation.faceColor];
+            const quaternion = new THREE.Quaternion().setFromAxisAngle(face.vector, t * animation.deltaTheta);
 
             animation.originalPosesByMesh.forEach((originalPose, blockMesh) => {
-                blockMesh.quaternion.copy(originalPose.quaternion);
-                blockMesh.quaternion.premultiply(quaternion);
-                blockMesh.position.copy(originalPose.position);
-                blockMesh.position.applyQuaternion(quaternion);
+                blockMesh.quaternion.copy(originalPose.quaternion).premultiply(quaternion);
+                blockMesh.position.copy(originalPose.position).applyQuaternion(quaternion);
             });
 
             if (t >= 1.0) {
-                this.updateAdjacencyAfterRotation(animation.face, animation.turns);
+                this.updateAdjacencyAfterRotation(animation.faceColor, animation.turns);
                 animation.resolve();
                 this.animations.shift();
             }
         }
     }
 
-    updateAdjacencyAfterRotation(color, numberOfClockwiseTurns) {
-        const adjacentFaces = topologyByColor[color].adjacentFaces;
+    updateAdjacencyAfterRotation(faceColor, numberOfClockwiseTurns) {
+        const adjacentFaces = facesByColor[faceColor].adjacentFaces;
         while (numberOfClockwiseTurns < 0) {
             numberOfClockwiseTurns += adjacentFaces.length;
         }
 
-        const meshesOnRotatedFace = this.blockMeshesByCenterColor.get(color);
+        const meshesOnRotatedFace = this.blockMeshesByCenterColor.get(faceColor);
         const meshesSharedWithAdjacentFaceByAdjacentFace = new Map();
         adjacentFaces.forEach((adjacentFace) => {
             const adjacentFaceMeshes = this.blockMeshesByCenterColor.get(adjacentFace);
