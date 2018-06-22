@@ -110,10 +110,16 @@ function render() {
 }
 
 function animate() {
+    try {
+        render();
+    } catch(e) {
+        window.paused = true;
+        console.error(e);
+    }
+
     if (!window.paused) {
         requestAnimationFrame(animate);
     }
-    render();
 }
 animate();
 
