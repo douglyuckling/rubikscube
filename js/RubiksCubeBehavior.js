@@ -90,19 +90,12 @@ export default class RubiksCubeBehavior {
         const axisConfig = axisConfigByColor[face];
         const deltaTheta = -turns * Math.PI / 2;
 
-        const quaternion = new THREE.Quaternion();
-        quaternion.setFromAxisAngle(axisConfig.vector, deltaTheta);
-
         const originalPosesByMesh = new Map();
-        const finalPosesByMesh = new Map();
         this.blockMeshesByCenterColor.get(face).forEach(blockMesh => {
             originalPosesByMesh.set(blockMesh, Object.assign({
                 position: blockMesh.position.clone(),
                 quaternion: blockMesh.quaternion.clone(),
             }));
-            finalPosesByMesh.set(blockMesh, {
-                quaternion: blockMesh.quaternion.clone().premultiply(quaternion),
-            });
         });
 
         const animation = {
@@ -110,8 +103,6 @@ export default class RubiksCubeBehavior {
             turns,
             axisConfig,
             originalPosesByMesh,
-            finalPosesByMesh,
-            quaternion,
             deltaTheta,
             startTime: null,
             duration: 500,
@@ -140,12 +131,14 @@ export default class RubiksCubeBehavior {
             const t = cubicInOut(Math.min(1.0, dt / animation.duration));
 
             const relativeTheta = t * animation.deltaTheta;
+            const quaternion = new THREE.Quaternion();
+            quaternion.setFromAxisAngle(animation.axisConfig.vector, relativeTheta);
 
             animation.originalPosesByMesh.forEach((originalPose, blockMesh) => {
-                const finalPose = animation.finalPosesByMesh.get(blockMesh);
-                THREE.Quaternion.slerp(originalPose.quaternion, finalPose.quaternion, blockMesh.quaternion, t);
+                blockMesh.quaternion.copy(originalPose.quaternion);
+                blockMesh.quaternion.premultiply(quaternion);
                 blockMesh.position.copy(originalPose.position);
-                blockMesh.position.applyAxisAngle(animation.axisConfig.vector, relativeTheta);
+                blockMesh.position.applyQuaternion(quaternion);
             });
 
             if (t >= 1.0) {
