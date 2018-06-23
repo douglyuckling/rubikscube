@@ -1,4 +1,5 @@
 import {loadRubiksCube} from './rubiksCubeModel.js';
+import RubiksCubeAnimation from './RubiksCubeAnimation.js';
 
 const colors = Object.freeze(['white', 'red', 'blue', 'orange', 'green', 'yellow']);
 
@@ -18,12 +19,23 @@ export default class RubiksCubeBehavior {
         colors.forEach(color => this.blockMeshesByCenterColor.set(color, []));
 
         this._ready = false;
-        this.animations = [];
-        this.initRubiksCubeBlocks();
+        this.currentAnimation = null;
+        this.queuedAnimations = [];
+        this.initRubiksCubeBlocks()
+            .then(() => {
+                this.animateFacesTurning([
+                    {faceColor: 'red', turns: 2},
+                    {faceColor: 'orange', turns: 2},
+                    {faceColor: 'white', turns: 2},
+                    {faceColor: 'yellow', turns: 2},
+                    {faceColor: 'green', turns: 2},
+                    {faceColor: 'blue', turns: 2},
+                ]);
+            });
     }
 
     initRubiksCubeBlocks() {
-        loadRubiksCube().then((rubiksCubeScene) => {
+        return loadRubiksCube().then((rubiksCubeScene) => {
             rubiksCubeScene.children.forEach(blockMesh => {
                 this.blockMeshesByCenterColor.forEach((blocksHavingThisColor, color) => {
                     if (blockMesh.name.includes(color)) {
@@ -33,15 +45,6 @@ export default class RubiksCubeBehavior {
             });
 
             this._ready = true;
-
-            this.animateFacesTurning([
-                {faceColor: 'red', turns: 2},
-                {faceColor: 'orange', turns: 2},
-                {faceColor: 'white', turns: 2},
-                {faceColor: 'yellow', turns: 2},
-                {faceColor: 'green', turns: 2},
-                {faceColor: 'blue', turns: 2},
-            ]);
         });
     }
 
@@ -69,8 +72,10 @@ export default class RubiksCubeBehavior {
         }
 
         const animation = this.createAnimationForFace(faceColor, turns);
-        this.animations.push(animation);
-        return animation.promise;
+        this.queuedAnimations.push(animation);
+        return animation.promise.then(() => {
+            this.updateAdjacencyAfterRotation(faceColor, turns);
+        });
     }
 
     createAnimationForFace(faceColor, turns) {
@@ -78,31 +83,10 @@ export default class RubiksCubeBehavior {
             throw Error("Cannot create animation before cube is ready");
         }
 
-        const deltaTheta = -turns * Math.PI / 2;
+        const face = facesByColor[faceColor];
+        const blockMeshesOnFace = this.blockMeshesByCenterColor.get(faceColor);
 
-        const originalPosesByMesh = new Map();
-        this.blockMeshesByCenterColor.get(faceColor).forEach(blockMesh => {
-            originalPosesByMesh.set(blockMesh, Object.assign({
-                position: blockMesh.position.clone(),
-                quaternion: blockMesh.quaternion.clone(),
-            }));
-        });
-
-        const animation = {
-            faceColor,
-            turns,
-            originalPosesByMesh,
-            deltaTheta,
-            startTime: null,
-            duration: 500,
-        };
-
-        animation.promise = new Promise((resolve, reject) => {
-            animation.resolve = resolve;
-            animation.reject = reject;
-        });
-
-        return animation;
+        return new RubiksCubeAnimation(blockMeshesOnFace, face.vector, turns);
     }
 
     update() {
@@ -110,28 +94,18 @@ export default class RubiksCubeBehavior {
             return;
         }
 
-        if (this.animations.length > 0) {
-            const animation = this.animations[0];
-            const now = new Date();
-            if (!animation.startTime) {
-                animation.startTime = now;
-            }
-            const dt = now - animation.startTime;
-            const t = cubicInOut(Math.min(1.0, dt / animation.duration));
-
-            const face = facesByColor[animation.faceColor];
-            const quaternion = new THREE.Quaternion().setFromAxisAngle(face.vector, t * animation.deltaTheta);
-
-            animation.originalPosesByMesh.forEach((originalPose, blockMesh) => {
-                blockMesh.quaternion.copy(originalPose.quaternion).premultiply(quaternion);
-                blockMesh.position.copy(originalPose.position).applyQuaternion(quaternion);
+        if (!this.currentAnimation && this.queuedAnimations.length > 0) {
+            const animation = this.queuedAnimations.shift();
+            this.currentAnimation = animation;
+            animation.promise.then(() => {
+                if (this.currentAnimation === animation) {
+                    this.currentAnimation = null;
+                }
             });
+        }
 
-            if (t >= 1.0) {
-                this.updateAdjacencyAfterRotation(animation.faceColor, animation.turns);
-                animation.resolve();
-                this.animations.shift();
-            }
+        if (this.currentAnimation) {
+            this.currentAnimation.update();
         }
     }
 
@@ -163,9 +137,4 @@ export default class RubiksCubeBehavior {
         });
     }
 
-}
-
-// Easing stolen from https://github.com/d3/d3-ease/blob/master/src/cubic.js
-function cubicInOut(t) {
-    return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
 }
