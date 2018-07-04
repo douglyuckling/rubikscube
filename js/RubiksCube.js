@@ -65,14 +65,19 @@ export default class RubiksCube {
         this.turnQueue = new TurnQueue();
         this.initRubiksCubeBlocks()
             .then(() => {
-                window.setInterval(() => {
+                const enqueueSomeTurns = () => {
                     this.turnQueue.enqueueTurnForFace(this.facesByColor.get('red'), 2);
                     this.turnQueue.enqueueTurnForFace(this.facesByColor.get('orange'), 2);
                     this.turnQueue.enqueueTurnForFace(this.facesByColor.get('white'), 2);
                     this.turnQueue.enqueueTurnForFace(this.facesByColor.get('yellow'), 2);
                     this.turnQueue.enqueueTurnForFace(this.facesByColor.get('green'), 2);
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('blue'), 2);
-                }, 5000);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('blue'), 2)
+                        .then(() => {
+                            window.setTimeout(enqueueSomeTurns, 2000);
+                        });
+                };
+
+                enqueueSomeTurns();
             });
     }
 
