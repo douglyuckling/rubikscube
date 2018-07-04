@@ -1,4 +1,4 @@
-import RubiksCubeAnimation from './RubiksCubeAnimation.js';
+import RubiksCubeFaceAnimation from './RubiksCubeFaceAnimation.js';
 
 class Turn {
 
@@ -19,7 +19,7 @@ class Turn {
 
         const blockMeshesOnFace = this.face.blocks.map(it => it.mesh);
         const axisOfRotation = this.face.vector;
-        this.animation = new RubiksCubeAnimation(blockMeshesOnFace, axisOfRotation, this.numberOfClockwiseTurns);
+        this.animation = new RubiksCubeFaceAnimation(blockMeshesOnFace, axisOfRotation, this.numberOfClockwiseTurns);
         return this.animation.promise
             .then(() => {
                 this.face.turn(this.numberOfClockwiseTurns);

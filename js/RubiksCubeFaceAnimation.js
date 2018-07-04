@@ -1,4 +1,4 @@
-export default class RubiksCubeAnimation {
+export default class RubiksCubeFaceAnimation {
 
     constructor(meshes, axisOfRotation, turns) {
         this.promise = new Promise((resolve, reject) => {
