@@ -2,9 +2,9 @@ import RubiksCubeAnimation from './RubiksCubeAnimation.js';
 
 class Turn {
 
-    constructor(face, quarterTurns) {
+    constructor(face, numberOfClockwiseTurns) {
         this.face = face;
-        this.quarterTurns = quarterTurns;
+        this.numberOfClockwiseTurns = numberOfClockwiseTurns;
         this.promise = new Promise((resolve, reject) => {
             this.resolve = resolve;
             this.reject = reject;
@@ -19,10 +19,10 @@ class Turn {
 
         const blockMeshesOnFace = this.face.blocks.map(it => it.mesh);
         const axisOfRotation = this.face.vector;
-        this.animation = new RubiksCubeAnimation(blockMeshesOnFace, axisOfRotation, this.quarterTurns);
+        this.animation = new RubiksCubeAnimation(blockMeshesOnFace, axisOfRotation, this.numberOfClockwiseTurns);
         return this.animation.promise
             .then(() => {
-                this.face.turn(this.quarterTurns);
+                this.face.turn(this.numberOfClockwiseTurns);
                 this.resolve();
             })
             .catch((exception) => {
@@ -39,8 +39,8 @@ export default class TurnQueue {
         this.queuedTurns = [];
     }
 
-    enqueueTurnForFace(face, quarterTurns) {
-        const turn = new Turn(face, quarterTurns);
+    enqueueTurnForFace(face, numberOfClockwiseTurns) {
+        const turn = new Turn(face, numberOfClockwiseTurns);
         this.queuedTurns.push(turn);
         return turn.promise;
     }
