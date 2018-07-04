@@ -61,17 +61,26 @@ export default class RubiksCube {
             face.setBlocks([centerBlock].concat(edgeBlocks).concat(cornerBlocks));
         });
 
+        this.allBlocks = new Set();
+        this.facesByColor.forEach(face => {
+            face.blocks.forEach(block => {
+                this.allBlocks.add(block);
+            });
+        });
+
         this._ready = false;
         this.turnQueue = new TurnQueue();
         this.initRubiksCubeBlocks()
             .then(() => {
+                this.printState();
+
                 const enqueueSomeTurns = () => {
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('red'), 2);
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('orange'), 2);
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('white'), 2);
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('yellow'), 2);
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('green'), 2);
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('blue'), 2)
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('red'), 2).then(() => this.printState());
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('orange'), 2).then(() => this.printState());
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('white'), 2).then(() => this.printState());
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('yellow'), 2).then(() => this.printState());
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('green'), 2).then(() => this.printState());
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('blue'), 2).then(() => this.printState())
                         .then(() => {
                             window.setTimeout(enqueueSomeTurns, 2000);
                         });
@@ -83,17 +92,9 @@ export default class RubiksCube {
 
     initRubiksCubeBlocks() {
         return loadRubiksCube().then((rubiksCubeScene) => {
-            const allBlocks = new Set();
-
-            this.facesByColor.forEach(face => {
-                face.blocks.forEach(block => {
-                    allBlocks.add(block);
-                });
-            });
-
             // Would be more efficient to remove meshes from the list as we go.
             const blockMeshes = rubiksCubeScene.children;
-            allBlocks.forEach(block => {
+            this.allBlocks.forEach(block => {
                 const words = [block.type].concat(block.colors);
                 const mesh = blockMeshes.find(blockMesh => {
                     return words.every(word => {
@@ -113,6 +114,23 @@ export default class RubiksCube {
 
     update() {
         this.turnQueue.update();
+    }
+
+    isSolved() {
+        return this.getIncorrectlyPositionedBlocks().length === 0;
+    }
+
+    getIncorrectlyPositionedBlocks() {
+        return Array.from(this.allBlocks).filter(block => !block.isCorrectlyPositioned());
+    }
+
+    printState() {
+        const incorrectlyPositionedBlocks = this.getIncorrectlyPositionedBlocks();
+        if (incorrectlyPositionedBlocks.length === 0) {
+            console.log("SOLVED!");
+        } else {
+            console.log(`${incorrectlyPositionedBlocks.length} incorrectly positioned blocks`);
+        }
     }
 
 }

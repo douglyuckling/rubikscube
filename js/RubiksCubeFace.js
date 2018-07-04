@@ -16,9 +16,7 @@ export default class RubiksCubeFace {
     }
 
     turn(numberOfClockwiseTurns) {
-        while (numberOfClockwiseTurns < 0) {
-            numberOfClockwiseTurns += this.adjacentFaces.length;
-        }
+        numberOfClockwiseTurns = normalizeNumberOfClockwiseTurns(numberOfClockwiseTurns);
 
         const blocksSharedWithAdjacentFaceByAdjacentFace = new Map();
         this.adjacentFaces.forEach((adjacentFace) => {
@@ -34,9 +32,13 @@ export default class RubiksCubeFace {
         });
 
         this.adjacentFaces.forEach((oldFace, i) => {
-            const newFace = this.adjacentFaces[(i + numberOfClockwiseTurns) % this.adjacentFaces.length];
+            const newFace = this.adjacentFaces[normalizeNumberOfClockwiseTurns(i + numberOfClockwiseTurns)];
             const blocksFromOldFace = blocksSharedWithAdjacentFaceByAdjacentFace.get(oldFace);
             newFace.setBlocks(newFace.blocks.concat(blocksFromOldFace));
+        });
+
+        this.blocks.forEach((block) => {
+            block.turn(this.axis, this.axisDirection * numberOfClockwiseTurns);
         });
     }
 
@@ -50,4 +52,12 @@ function createVectorFromAxisAndAxisDirection(axis, axisDirection) {
     const vector = new THREE.Vector3(0, 0, 0);
     vector.setComponent(axis, Math.sign(axisDirection));
     return vector;
+}
+
+function normalizeNumberOfClockwiseTurns(n) {
+    n %= 4;
+    if (n < 0) {
+        n += 4;
+    }
+    return n % 4;
 }
