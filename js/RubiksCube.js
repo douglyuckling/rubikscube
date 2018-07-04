@@ -4,12 +4,12 @@ import {loadRubiksCube} from './rubiksCubeModel.js';
 import TurnQueue from './TurnQueue.js';
 
 const facesDataByColor = {
-    'red': {vector: new THREE.Vector3(1, 0, 0), adjacentFaces: ['white', 'blue', 'yellow', 'green']},
-    'orange': {vector: new THREE.Vector3(-1, 0, 0), adjacentFaces: ['white', 'green', 'yellow', 'blue']},
-    'white': {vector: new THREE.Vector3(0, 1, 0), adjacentFaces: ['red', 'green', 'orange', 'blue']},
-    'yellow': {vector: new THREE.Vector3(0, -1, 0), adjacentFaces: ['red', 'blue', 'orange', 'green']},
-    'blue': {vector: new THREE.Vector3(0, 0, -1), adjacentFaces: ['white', 'orange', 'yellow', 'red']},
-    'green': {vector: new THREE.Vector3(0, 0, 1), adjacentFaces: ['white', 'red', 'yellow', 'orange']},
+    'red': {axis: 0, axisDirection: 1, adjacentFaces: ['white', 'blue', 'yellow', 'green']},
+    'orange': {axis: 0, axisDirection: -1, adjacentFaces: ['white', 'green', 'yellow', 'blue']},
+    'white': {axis: 1, axisDirection: 1, adjacentFaces: ['red', 'green', 'orange', 'blue']},
+    'yellow': {axis: 1, axisDirection: -1, adjacentFaces: ['red', 'blue', 'orange', 'green']},
+    'blue': {axis: 2, axisDirection: -1, adjacentFaces: ['white', 'orange', 'yellow', 'red']},
+    'green': {axis: 2, axisDirection: 1, adjacentFaces: ['white', 'red', 'yellow', 'orange']},
 };
 
 export default class RubiksCube {
@@ -17,8 +17,8 @@ export default class RubiksCube {
     constructor() {
         this.facesByColor = new Map();
         Object.keys(facesDataByColor).map(color => {
-            const vector = facesDataByColor[color].vector;
-            this.facesByColor.set(color, new RubiksCubeFace(color, vector));
+            const faceData = facesDataByColor[color];
+            this.facesByColor.set(color, new RubiksCubeFace(color, faceData.axis, faceData.axisDirection));
         });
 
         this.facesByColor.forEach((face, color) => {

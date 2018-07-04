@@ -1,8 +1,10 @@
 export default class RubiksCubeFace {
 
-    constructor(color, vector) {
+    constructor(color, axis, axisDirection) {
         this.color = color;
-        this.vector = vector;
+        this.axis = axis;
+        this.axisDirection = axisDirection;
+        this.vector = createVectorFromAxisAndAxisDirection(axis, axisDirection)
     }
 
     setAdjacentFaces(adjacentFaces) {
@@ -42,4 +44,10 @@ export default class RubiksCubeFace {
         return ``;
     }
 
+}
+
+function createVectorFromAxisAndAxisDirection(axis, axisDirection) {
+    const vector = new THREE.Vector3(0, 0, 0);
+    vector.setComponent(axis, Math.sign(axisDirection));
+    return vector;
 }
