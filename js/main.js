@@ -63,7 +63,7 @@ const scene = initMainScene();
 
 const camera = new THREE.PerspectiveCamera(60, 16 / 9, 0.1, 50);
 camera.up = new THREE.Vector3(0, 1, 0);
-camera.position.set(11, 8, 11);
+camera.position.set(7, 7, 13);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 const skyBox = initSkyBox(camera);
@@ -73,18 +73,6 @@ renderer.autoClear = false;
 renderer.setPixelRatio(window.devicePixelRatio);
 updateRendererSize();
 document.body.appendChild(renderer.domElement);
-
-const controls = new THREE.OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.25;
-controls.screenSpacePanning = false;
-controls.minDistance = 14;
-controls.maxDistance = 14;
-controls.maxPolarAngle = Math.PI;
-controls.enablePan = false;
-controls.autoRotate = true;
-controls.autoRotateSpeed = 0.25;
-controls.mouseButtons.ORBIT = THREE.MOUSE.LEFT;
 
 const rubiksCube = new RubiksCube();
 
@@ -102,7 +90,6 @@ function updateRendererSize() {
 }
 
 function render() {
-    controls.update();
     rubiksCube.update();
 
     skyBox.render(renderer, camera);
@@ -129,5 +116,22 @@ window.addEventListener('keyup', (event) => {
         if (!window.paused) {
             animate();
         }
+    }
+}, false);
+
+window.addEventListener('keydown', (event) => {
+    switch(event.key) {
+        case 'ArrowLeft':
+            rubiksCube.rotateLeft();
+            break;
+        case 'ArrowRight':
+            rubiksCube.rotateRight();
+            break;
+        case 'ArrowUp':
+            rubiksCube.rotateUp();
+            break;
+        case 'ArrowDown':
+            rubiksCube.rotateDown();
+            break;
     }
 }, false);

@@ -2,6 +2,7 @@ import RubiksCubeFace from './RubiksCubeFace.js'
 import RubiksCubeBlock from './RubiksCubeBlock.js'
 import {loadRubiksCube} from './rubiksCubeModel.js';
 import TurnQueue from './TurnQueue.js';
+import RubiksCubeAnimation from './RubiksCubeAnimation.js'
 
 const facesDataByColor = {
     'red': {axis: 0, axisDirection: 1, adjacentFaces: ['white', 'blue', 'yellow', 'green']},
@@ -88,10 +89,14 @@ export default class RubiksCube {
 
                 enqueueSomeTurns();
             });
+
+        this.currentCubeAnimation = null;
     }
 
     initRubiksCubeBlocks() {
         return loadRubiksCube().then((rubiksCubeScene) => {
+            this.rubiksCubeScene = rubiksCubeScene;
+
             // Would be more efficient to remove meshes from the list as we go.
             const blockMeshes = rubiksCubeScene.children;
             this.allBlocks.forEach(block => {
@@ -114,6 +119,9 @@ export default class RubiksCube {
 
     update() {
         this.turnQueue.update();
+        if (this.currentCubeAnimation) {
+            this.currentCubeAnimation.update();
+        }
     }
 
     isSolved() {
@@ -130,6 +138,34 @@ export default class RubiksCube {
             console.log("SOLVED!");
         } else {
             console.log(`${incorrectlyPositionedBlocks.length} incorrectly positioned blocks`);
+        }
+    }
+
+    rotateLeft() {
+        this.rotate(1, 1);
+    }
+
+    rotateRight() {
+        this.rotate(1, -1);
+    }
+
+    rotateUp() {
+        this.rotate(0, 1);
+    }
+
+    rotateDown() {
+        this.rotate(0, -1);
+    }
+
+    rotate(axis, numberOfClockwiseTurns) {
+        if (!this.currentCubeAnimation && this.rubiksCubeScene) {
+            const axisOfRotation = new THREE.Vector3(0, 0, 0);
+            axisOfRotation.setComponent(axis, 1);
+
+            this.currentCubeAnimation = new RubiksCubeAnimation(this.rubiksCubeScene, axisOfRotation, numberOfClockwiseTurns);
+            this.currentCubeAnimation.promise.then(() => {
+                this.currentCubeAnimation = null;
+            });
         }
     }
 
