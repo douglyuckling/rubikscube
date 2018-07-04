@@ -1,7 +1,7 @@
 import RubiksCubeFace from './RubiksCubeFace.js'
 import RubiksCubeBlock from './RubiksCubeBlock.js'
 import {loadRubiksCube} from './rubiksCubeModel.js';
-import RubiksCubeAnimation from './RubiksCubeAnimation.js';
+import TurnQueue from './TurnQueue.js';
 
 const facesDataByColor = {
     'red': {vector: new THREE.Vector3(1, 0, 0), adjacentFaces: ['white', 'blue', 'yellow', 'green']},
@@ -62,19 +62,16 @@ export default class RubiksCube {
         });
 
         this._ready = false;
-        this.currentAnimation = null;
-        this.queuedTurns = [];
+        this.turnQueue = new TurnQueue();
         this.initRubiksCubeBlocks()
             .then(() => {
                 window.setInterval(() => {
-                    this.animateFacesTurning([
-                        {faceColor: 'red', turns: 2},
-                        {faceColor: 'orange', turns: 2},
-                        {faceColor: 'white', turns: 2},
-                        {faceColor: 'yellow', turns: 2},
-                        {faceColor: 'green', turns: 2},
-                        {faceColor: 'blue', turns: 2},
-                    ]);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('red'), 2);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('orange'), 2);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('white'), 2);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('yellow'), 2);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('green'), 2);
+                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('blue'), 2);
                 }, 5000);
             });
     }
@@ -109,51 +106,8 @@ export default class RubiksCube {
         return this._ready;
     }
 
-    animateFacesTurning(steps) {
-        if (!this.ready) {
-            return;
-        }
-
-        steps.forEach(step => {
-            this.enqueueTurnForFace(step.faceColor, step.turns);
-        });
-    }
-
-    enqueueTurnForFace(faceColor, turns) {
-        if (!this.ready) {
-            return;
-        }
-
-        const face = this.facesByColor.get(faceColor);
-        const turn = {face, turns};
-        this.queuedTurns.push(turn);
-    }
-
-    createAnimationForFace(face, turns) {
-        const blockMeshesOnFace = face.blocks.map(it => it.mesh);
-        const axisOfRotation = face.vector;
-        return new RubiksCubeAnimation(blockMeshesOnFace, axisOfRotation, turns);
-    }
-
     update() {
-        if (!this.ready) {
-            return;
-        }
-
-        if (!this.currentAnimation && this.queuedTurns.length > 0) {
-            const turn = this.queuedTurns.shift();
-            const animation = this.createAnimationForFace(turn.face, turn.turns);
-            this.currentAnimation = animation;
-            animation.promise.then(() => {
-                turn.face.turn(turn.turns);
-                if (this.currentAnimation === animation) {
-                    this.currentAnimation = null;
-                }
-            });
-        }
-
-        if (this.currentAnimation) {
-            this.currentAnimation.update();
-        }
+        this.turnQueue.update();
     }
+
 }
