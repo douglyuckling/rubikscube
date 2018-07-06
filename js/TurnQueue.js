@@ -2,8 +2,8 @@ import RubiksCubeFaceAnimation from './RubiksCubeFaceAnimation.js';
 
 class Turn {
 
-    constructor(face, numberOfClockwiseTurns) {
-        this.face = face;
+    constructor(faceOrientation, numberOfClockwiseTurns) {
+        this.faceOrientation = faceOrientation;
         this.numberOfClockwiseTurns = numberOfClockwiseTurns;
         this.promise = new Promise((resolve, reject) => {
             this.resolve = resolve;
@@ -12,35 +12,38 @@ class Turn {
         this.animation = null;
     }
 
-    createAnimation() {
+    execute(rubiksCube) {
         if (this.animation) {
             throw Error("An animation has already been created for this turn.");
         }
 
-        const blockMeshesOnFace = this.face.blocks.map(it => it.mesh);
-        const axisOfRotation = this.face.vector;
+        const face = rubiksCube.getFaceForOrientation(this.faceOrientation);
+        const blockMeshesOnFace = face.blocks.map(it => it.mesh);
+        const axisOfRotation = face.vector;
         this.animation = new RubiksCubeFaceAnimation(blockMeshesOnFace, axisOfRotation, this.numberOfClockwiseTurns);
-        return this.animation.promise
+        this.animation.promise
             .then(() => {
-                this.face.turn(this.numberOfClockwiseTurns);
+                face.turn(this.numberOfClockwiseTurns);
                 this.resolve();
             })
             .catch((exception) => {
                 this.reject(exception);
             });
+        return this.promise;
     }
 
 }
 
 export default class TurnQueue {
 
-    constructor() {
+    constructor(rubiksCube) {
+        this.rubiksCube = rubiksCube;
         this.currentTurn = null;
         this.queuedTurns = [];
     }
 
-    enqueueTurnForFace(face, numberOfClockwiseTurns) {
-        const turn = new Turn(face, numberOfClockwiseTurns);
+    enqueueTurnForFace(faceOrientation, numberOfClockwiseTurns) {
+        const turn = new Turn(faceOrientation, numberOfClockwiseTurns);
         this.queuedTurns.push(turn);
         return turn.promise;
     }
@@ -48,7 +51,7 @@ export default class TurnQueue {
     update() {
         if (!this.currentTurn && this.queuedTurns.length > 0) {
             this.currentTurn = this.queuedTurns.shift();
-            this.currentTurn.createAnimation()
+            this.currentTurn.execute(this.rubiksCube)
                 .then(() => {
                     this.currentTurn = null;
                 });

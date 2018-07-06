@@ -85,7 +85,7 @@ export default class RubiksCube {
         });
 
         this._ready = false;
-        this.turnQueue = new TurnQueue();
+        this.turnQueue = new TurnQueue(this);
         this.initRubiksCubeBlocks();
 
         this.currentCubeAnimation = null;
@@ -113,6 +113,11 @@ export default class RubiksCube {
 
     get ready() {
         return this._ready;
+    }
+
+    getFaceForOrientation(orientation) {
+        const faceColor = this.faceColorsByOrientation[orientation];
+        return this.facesByColor.get(faceColor);
     }
 
     update() {
@@ -156,9 +161,7 @@ export default class RubiksCube {
     }
 
     turnFace(orientation, numberOfClockwiseTurns) {
-        const faceColor = this.faceColorsByOrientation[orientation];
-        const face = this.facesByColor.get(faceColor);
-        this.turnQueue.enqueueTurnForFace(face, numberOfClockwiseTurns)
+        this.turnQueue.enqueueTurnForFace(orientation, numberOfClockwiseTurns)
             .then(() => this.printState());
     }
 
