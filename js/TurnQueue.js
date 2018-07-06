@@ -1,6 +1,7 @@
 import RubiksCubeFaceAnimation from './RubiksCubeFaceAnimation.js';
+import RubiksCubeAnimation from './RubiksCubeAnimation.js';
 
-class Turn {
+class FaceTurn {
 
     constructor(faceOrientation, numberOfClockwiseTurns) {
         this.faceOrientation = faceOrientation;
@@ -34,6 +35,45 @@ class Turn {
 
 }
 
+class CubeTurn {
+
+    constructor(axis, numberOfClockwiseTurns) {
+        this.axis = axis;
+        this.numberOfClockwiseTurns = numberOfClockwiseTurns;
+        this.promise = new Promise((resolve, reject) => {
+            this.resolve = resolve;
+            this.reject = reject;
+        });
+        this.animation = null;
+    }
+
+    execute(rubiksCube) {
+        if (this.animation) {
+            throw Error("An animation has already been created for this turn.");
+        }
+
+        const rubiksCubeScene = rubiksCube.rubiksCubeScene;
+        if (!rubiksCubeScene) {
+            throw Error("Rubiks cube scene is not ready yet.");
+        }
+
+        const axisOfRotation = new THREE.Vector3(0, 0, 0);
+        axisOfRotation.setComponent(this.axis, 1);
+
+        this.animation = new RubiksCubeAnimation(rubiksCubeScene, axisOfRotation, this.numberOfClockwiseTurns);
+        this.animation.promise
+            .then(() => {
+                rubiksCube.rotateFaceColorsByOrientationToViewer(this.axis, this.numberOfClockwiseTurns);
+                this.resolve();
+            })
+            .catch((exception) => {
+                this.reject(exception);
+            });
+        return this.promise;
+    }
+
+}
+
 export default class TurnQueue {
 
     constructor(rubiksCube) {
@@ -43,7 +83,13 @@ export default class TurnQueue {
     }
 
     enqueueTurnForFace(faceOrientation, numberOfClockwiseTurns) {
-        const turn = new Turn(faceOrientation, numberOfClockwiseTurns);
+        const turn = new FaceTurn(faceOrientation, numberOfClockwiseTurns);
+        this.queuedTurns.push(turn);
+        return turn.promise;
+    }
+
+    enqueueTurnForCube(axis, numberOfClockwiseTurns) {
+        const turn = new CubeTurn(axis, numberOfClockwiseTurns);
         this.queuedTurns.push(turn);
         return turn.promise;
     }

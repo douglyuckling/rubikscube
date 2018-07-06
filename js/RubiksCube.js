@@ -2,7 +2,6 @@ import RubiksCubeFace from './RubiksCubeFace.js'
 import RubiksCubeBlock from './RubiksCubeBlock.js'
 import {loadRubiksCube} from './rubiksCubeModel.js';
 import TurnQueue from './TurnQueue.js';
-import RubiksCubeAnimation from './RubiksCubeAnimation.js'
 
 const facesDataByColor = {
     'red': {axis: 0, axisDirection: 1, adjacentFaces: ['white', 'blue', 'yellow', 'green']},
@@ -166,16 +165,7 @@ export default class RubiksCube {
     }
 
     rotate(axis, numberOfClockwiseTurns) {
-        if (!this.currentCubeAnimation && this.rubiksCubeScene) {
-            const axisOfRotation = new THREE.Vector3(0, 0, 0);
-            axisOfRotation.setComponent(axis, 1);
-
-            this.currentCubeAnimation = new RubiksCubeAnimation(this.rubiksCubeScene, axisOfRotation, numberOfClockwiseTurns);
-            this.currentCubeAnimation.promise.then(() => {
-                this.currentCubeAnimation = null;
-                this.rotateFaceColorsByOrientationToViewer(axis, numberOfClockwiseTurns);
-            });
-        }
+        this.turnQueue.enqueueTurnForCube(axis, numberOfClockwiseTurns)
     }
 
     rotateFaceColorsByOrientationToViewer(axis, numberOfClockwiseTurns) {
