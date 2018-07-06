@@ -9,9 +9,15 @@ const facesDataByColor = {
     'orange': {axis: 0, axisDirection: -1, adjacentFaces: ['white', 'green', 'yellow', 'blue']},
     'white': {axis: 1, axisDirection: 1, adjacentFaces: ['red', 'green', 'orange', 'blue']},
     'yellow': {axis: 1, axisDirection: -1, adjacentFaces: ['red', 'blue', 'orange', 'green']},
-    'blue': {axis: 2, axisDirection: -1, adjacentFaces: ['white', 'orange', 'yellow', 'red']},
     'green': {axis: 2, axisDirection: 1, adjacentFaces: ['white', 'red', 'yellow', 'orange']},
+    'blue': {axis: 2, axisDirection: -1, adjacentFaces: ['white', 'orange', 'yellow', 'red']},
 };
+
+const orientationsInClockwiseOrderByAxis = [
+    ['front', 'top', 'back', 'bottom'],
+    ['right', 'front', 'left', 'back'],
+    ['top', 'right', 'bottom', 'left'],
+];
 
 export default class RubiksCube {
 
@@ -61,6 +67,15 @@ export default class RubiksCube {
 
             face.setBlocks([centerBlock].concat(edgeBlocks).concat(cornerBlocks));
         });
+
+        this.faceColorsByOrientation = {
+            right: 'red',
+            left: 'orange',
+            top: 'white',
+            bottom: 'yellow',
+            front: 'green',
+            back: 'blue',
+        };
 
         this.allBlocks = new Set();
         this.facesByColor.forEach(face => {
@@ -165,8 +180,26 @@ export default class RubiksCube {
             this.currentCubeAnimation = new RubiksCubeAnimation(this.rubiksCubeScene, axisOfRotation, numberOfClockwiseTurns);
             this.currentCubeAnimation.promise.then(() => {
                 this.currentCubeAnimation = null;
+                this.rotateFaceColorsByOrientationToViewer(axis, numberOfClockwiseTurns);
             });
         }
     }
 
+    rotateFaceColorsByOrientationToViewer(axis, numberOfClockwiseTurns) {
+        const oldFaceColorsByOrientation = Object.assign({}, this.faceColorsByOrientation);
+        const orientations = orientationsInClockwiseOrderByAxis[axis];
+        orientations.forEach((orientation, i) => {
+            const nextOrientation = orientations[normalizeArrayIndex(i - numberOfClockwiseTurns, orientations.length)];
+            this.faceColorsByOrientation[orientation] = oldFaceColorsByOrientation[nextOrientation];
+        });
+    }
+
+}
+
+function normalizeArrayIndex(i, arrayLength) {
+    i %= arrayLength;
+    if (i < 0) {
+        i += arrayLength;
+    }
+    return i;
 }
