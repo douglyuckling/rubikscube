@@ -13,7 +13,7 @@ export default class RubiksCubeFaceAnimation {
             this.axisOfRotation = axisOfRotation.clone().normalize();
             this.deltaTheta = -turns * Math.PI / 2;
             this.startTime = null;
-            this.duration = 500;
+            this.duration = 250;
             this.complete = false;
 
             this.resolve = resolve;

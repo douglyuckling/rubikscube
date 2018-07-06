@@ -119,6 +119,20 @@ window.addEventListener('keyup', (event) => {
     }
 }, false);
 
+const clockwiseKeysByOrientation = {
+    top: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    front: ['f', 'k'],
+    right: ['a', 'g', 'l'],
+    back: ['s', 'h'],
+    left: ['d', 'j'],
+    bottom: ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.'],
+};
+
+const anticlockwiseKeysByOrientation = {};
+Object.keys(clockwiseKeysByOrientation).forEach(orientation => {
+    anticlockwiseKeysByOrientation[orientation] = clockwiseKeysByOrientation[orientation].map(it => it.toUpperCase());
+});
+
 window.addEventListener('keydown', (event) => {
     switch(event.key) {
         case 'ArrowLeft':
@@ -133,5 +147,24 @@ window.addEventListener('keydown', (event) => {
         case 'ArrowDown':
             rubiksCube.rotateDown();
             break;
+    }
+
+    let numberOfClockwiseTurns = 0;
+    let orientation = Object.keys(clockwiseKeysByOrientation).find(orientation => {
+        return clockwiseKeysByOrientation[orientation].includes(event.key);
+    });
+    if (orientation) {
+        numberOfClockwiseTurns = 1;
+    } else {
+        orientation = Object.keys(anticlockwiseKeysByOrientation).find(orientation => {
+            return anticlockwiseKeysByOrientation[orientation].includes(event.key);
+        });
+        if (orientation) {
+            numberOfClockwiseTurns = -1;
+        }
+    }
+
+    if (numberOfClockwiseTurns !== 0) {
+        rubiksCube.turnFace(orientation, numberOfClockwiseTurns);
     }
 }, false);

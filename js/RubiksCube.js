@@ -86,24 +86,7 @@ export default class RubiksCube {
 
         this._ready = false;
         this.turnQueue = new TurnQueue();
-        this.initRubiksCubeBlocks()
-            .then(() => {
-                this.printState();
-
-                const enqueueSomeTurns = () => {
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('red'), 2).then(() => this.printState());
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('orange'), 2).then(() => this.printState());
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('white'), 2).then(() => this.printState());
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('yellow'), 2).then(() => this.printState());
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('green'), 2).then(() => this.printState());
-                    this.turnQueue.enqueueTurnForFace(this.facesByColor.get('blue'), 2).then(() => this.printState())
-                        .then(() => {
-                            window.setTimeout(enqueueSomeTurns, 2000);
-                        });
-                };
-
-                enqueueSomeTurns();
-            });
+        this.initRubiksCubeBlocks();
 
         this.currentCubeAnimation = null;
     }
@@ -170,6 +153,13 @@ export default class RubiksCube {
 
     rotateDown() {
         this.rotate(0, -1);
+    }
+
+    turnFace(orientation, numberOfClockwiseTurns) {
+        const faceColor = this.faceColorsByOrientation[orientation];
+        const face = this.facesByColor.get(faceColor);
+        this.turnQueue.enqueueTurnForFace(face, numberOfClockwiseTurns)
+            .then(() => this.printState());
     }
 
     rotate(axis, numberOfClockwiseTurns) {
