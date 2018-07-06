@@ -1,5 +1,4 @@
-import RubiksCubeFaceAnimation from './RubiksCubeFaceAnimation.js';
-import RubiksCubeAnimation from './RubiksCubeAnimation.js';
+import RotationAnimation from './RotationAnimation.js';
 
 class FaceTurn {
 
@@ -21,7 +20,7 @@ class FaceTurn {
         const face = rubiksCube.getFaceForOrientation(this.faceOrientation);
         const blockMeshesOnFace = face.blocks.map(it => it.mesh);
         const axisOfRotation = face.vector;
-        this.animation = new RubiksCubeFaceAnimation(blockMeshesOnFace, axisOfRotation, this.numberOfClockwiseTurns);
+        this.animation = new RotationAnimation(blockMeshesOnFace, axisOfRotation, this.numberOfClockwiseTurns);
         this.animation.promise
             .then(() => {
                 face.turn(this.numberOfClockwiseTurns);
@@ -60,7 +59,7 @@ class CubeTurn {
         const axisOfRotation = new THREE.Vector3(0, 0, 0);
         axisOfRotation.setComponent(this.axis, 1);
 
-        this.animation = new RubiksCubeAnimation(rubiksCubeScene, axisOfRotation, this.numberOfClockwiseTurns);
+        this.animation = new RotationAnimation([rubiksCubeScene], axisOfRotation, this.numberOfClockwiseTurns);
         this.animation.promise
             .then(() => {
                 rubiksCube.rotateFaceColorsByOrientationToViewer(this.axis, this.numberOfClockwiseTurns);

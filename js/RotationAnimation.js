@@ -1,12 +1,12 @@
-export default class RubiksCubeFaceAnimation {
+export default class RotationAnimation {
 
-    constructor(meshes, axisOfRotation, turns) {
+    constructor(objects, axisOfRotation, turns) {
         this.promise = new Promise((resolve, reject) => {
-            this.originalPosesByMesh = new Map();
-            meshes.forEach(mesh => {
-                this.originalPosesByMesh.set(mesh, {
-                    position: mesh.position.clone(),
-                    quaternion: mesh.quaternion.clone(),
+            this.originalPosesByObject = new Map();
+            objects.forEach(object => {
+                this.originalPosesByObject.set(object, {
+                    position: object.position.clone(),
+                    quaternion: object.quaternion.clone(),
                 });
             });
 
@@ -35,9 +35,9 @@ export default class RubiksCubeFaceAnimation {
 
         const quaternion = new THREE.Quaternion().setFromAxisAngle(this.axisOfRotation, t * this.deltaTheta);
 
-        this.originalPosesByMesh.forEach((originalPose, blockMesh) => {
-            blockMesh.quaternion.copy(originalPose.quaternion).premultiply(quaternion);
-            blockMesh.position.copy(originalPose.position).applyQuaternion(quaternion);
+        this.originalPosesByObject.forEach((originalPose, object) => {
+            object.quaternion.copy(originalPose.quaternion).premultiply(quaternion);
+            object.position.copy(originalPose.position).applyQuaternion(quaternion);
         });
 
         if (t >= 1.0) {
