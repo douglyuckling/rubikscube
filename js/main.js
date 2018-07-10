@@ -110,15 +110,6 @@ function animate() {
 }
 animate();
 
-window.addEventListener('keyup', (event) => {
-    if (event.code === 'Space') {
-        window.paused = !window.paused;
-        if (!window.paused) {
-            animate();
-        }
-    }
-}, false);
-
 const clockwiseKeysByOrientation = {
     top: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     front: ['f', 'k'],
