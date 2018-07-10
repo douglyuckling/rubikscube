@@ -1,4 +1,3 @@
-import textures from './textures.js';
 import materials from './materials.js';
 import {loadRubiksCube} from './rubiksCubeModel.js';
 import RubiksCube from './RubiksCube.js';
@@ -6,6 +5,7 @@ import RubiksCube from './RubiksCube.js';
 function initMainScene() {
     const scene = new THREE.Scene();
 
+    scene.background = new THREE.Color(0.2, 0.2, 0.2);
     scene.add(new THREE.AmbientLight(new THREE.Color(0.8, 0.8, 0.8)));
 
     loadRubiksCube().then((rubiksCubeScene) => {
@@ -26,47 +26,12 @@ function initMainScene() {
     return scene;
 }
 
-function initSkyBox(mainCamera) {
-    const camera = new THREE.PerspectiveCamera(
-        mainCamera.fov,
-        mainCamera.aspect,
-        mainCamera.near,
-        mainCamera.far);
-    const scene = new THREE.Scene();
-
-    const shader = THREE.ShaderLib['cube'];
-    const material = new THREE.ShaderMaterial({
-        fragmentShader: shader.fragmentShader,
-        vertexShader: shader.vertexShader,
-        uniforms: shader.uniforms,
-        depthWrite: false,
-        side: THREE.BackSide
-    });
-    material.uniforms['tCube'].value = textures['environmentMap'];
-
-    const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(100, 4), material);
-    mesh.visible = true;
-    scene.add(mesh);
-
-    function render(renderer) {
-        camera.rotation.copy(mainCamera.rotation);
-        renderer.render(scene, camera);
-    }
-
-    return {
-        render,
-        camera
-    }
-}
-
 const scene = initMainScene();
 
 const camera = new THREE.PerspectiveCamera(60, 16 / 9, 0.1, 50);
 camera.up = new THREE.Vector3(0, 1, 0);
 camera.position.set(7, 7, 13);
 camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-const skyBox = initSkyBox(camera);
 
 var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.autoClear = false;
@@ -92,7 +57,6 @@ function updateRendererSize() {
 function render() {
     rubiksCube.update();
 
-    skyBox.render(renderer, camera);
     renderer.render(scene, camera);
 }
 
