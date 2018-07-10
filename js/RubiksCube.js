@@ -151,6 +151,14 @@ export default class RubiksCube {
         this.rotate(1, -1);
     }
 
+    rollLeft() {
+        this.rotate(2, -1);
+    }
+
+    rollRight() {
+        this.rotate(2, 1);
+    }
+
     rotateUp() {
         this.rotate(0, 1);
     }

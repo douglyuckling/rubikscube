@@ -127,10 +127,10 @@ Object.keys(clockwiseKeysByOrientation).forEach(orientation => {
 window.addEventListener('keydown', (event) => {
     switch(event.key) {
         case 'ArrowLeft':
-            rubiksCube.rotateLeft();
+            event.shiftKey ? rubiksCube.rollLeft() : rubiksCube.rotateLeft();
             break;
         case 'ArrowRight':
-            rubiksCube.rotateRight();
+            event.shiftKey ? rubiksCube.rollRight() : rubiksCube.rotateRight();
             break;
         case 'ArrowUp':
             rubiksCube.rotateUp();
